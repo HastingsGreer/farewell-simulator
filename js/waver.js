@@ -61,7 +61,7 @@ function waver (onStartWave, onEndWave, ctx){
   this.canvX = rect.left;
   this.canvY = rect.top;
 
-  canvas.addEventListener('mousemove', this.getMousePos , false);
+  document.getElementById('bod').addEventListener('mousemove', this.getMousePos , false);
 
 
   this.draw = () => {

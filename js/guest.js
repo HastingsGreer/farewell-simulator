@@ -99,11 +99,11 @@ function guest(x, type){
     this.draw = (ctx) => {
       if (!this.done){
         if (this.crossing && this.going)
-          this.back_sprite.render(ctx, this.x, this.y);          
+          this.back_sprite.render(ctx, this.x, this.y);
         else if (!this.crossing && this.going)
-          this.front_sprite.render(ctx, this.x, this.y); 
+          this.front_sprite.render(ctx, this.x, this.y);
         else
-          this.wave_dance_sprite.render(ctx, this.x, this.y);      
+          this.wave_dance_sprite.render(ctx, this.x, this.y);
       }
       debug_rect(ctx,
           this.x + this.hittbox_x_offset,
