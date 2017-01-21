@@ -1,5 +1,5 @@
 console.log("I exist");
-var cars = ["img/tank-roll.png", "img/tank-roll.png"];
+var cars = ["img/tank-roll.png", "img/car1-roll.png"];
 var width = 1800;
 var lanes = [50, 150, 250, 350, 450];
 
