@@ -56,12 +56,12 @@ function level(level_number){
         }));
         done = true;
         setTimeout(() => {
-            console.log("WIN"); 
+            console.log("WIN");
             window.game.stop(() => {
               clear_splat();
               init(level_number + 1);
             });
-          }, 
+          },
           4000
         );
     }
@@ -72,13 +72,22 @@ function level(level_number){
 
     // LOSS - restart the level
     if(any_colission && ! done){
+        this.tiles.push( new sprite({
+            scale: 4,
+            width: 192 * 20,
+            height: 32,
+            imagesrc: "img/you-lose.png",
+            numberOfFrames: 20,
+            ticksPerFrame: 8,
+            loop: true
+        }));
         done = true;
         setTimeout(() => {
-            console.log("LOSS"); 
+            console.log("LOSS");
             window.game.stop(() => {
               init(level_number);
             });
-          }, 
+          },
           3000
         );
     }
