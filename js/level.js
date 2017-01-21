@@ -8,9 +8,9 @@ function level(level_number){
   */
   console.log("level getting initilized");
 
-  this.cars = [new car(0, {x:100, y:100}, 200, 0),
-               new car(0, {x:100, y:200}, -200, 1)];
-  this.guests = [];
+  this.cars = [new car(0, {x:100, y:100}, 400, 0),
+               new car(0, {x:100, y:200}, -400, 1)];
+  this.guests = [new guest(0, 600, 0), new guest(100, 600, 1)];
 
   this.bg = new Image();
   this.bg.src = 'img/bg.png';

@@ -1,5 +1,5 @@
 console.log("I exist");
-var cars = spriteList(["img/pirate-front.png", "img/general-back.png"]);
+var cars = spriteList(["img/car1.png", "img/tank.png"]);
 var width = 1800;
 
 function car(lane, position, speed, type){

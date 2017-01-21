@@ -19,12 +19,14 @@ var Game = function(canvas){
   this.ctx.webkitImageSmoothingEnabled = false;
   this.ctx.msImageSmoothingEnabled = false;
   this.ctx.imageSmoothingEnabled = false;
-  this.waver = new waver(function(){}, function(){}, this.ctx);
+
   this.lastFrameTimeMs = 0;
   this.interval = 33; //ms
 
   this.level_number = 0;
   this.level = new level(this.level_number);
+
+  this.waver = new waver(this.level.onStartWave, this.level.onEndWave, this.ctx);
 
   this.mainLoop = (timestamp) => {
     var delta = timestamp - this.lastFrameTimeMs; // get the delta time since last frame
