@@ -1,9 +1,5 @@
-var crossing_x = 300;
 var initial_y = 630;
 var car_height = 80;
-var guestFronts = ["img/pirate-front-walk.png", "img/pirate-front-walk.png"];
-var guestBacks = ["img/pirate-back-walk.png", "img/pirate-back-walk.png"];
-var guestWaves = ["img/pirate-dance-wave.png", "img/pirate-dance-wave.png"];
 var speed = 200;
 
 function guest(x, type){

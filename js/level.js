@@ -5,11 +5,14 @@ function level(level_number){
     This involves deciding positions of things
     This involves drawing the background.
   */
+
   console.log("level getting initilized");
-  var done = false;
+
   var temp = level_init(level_number);
   this.cars = temp.cars;
   this.guests = temp.guests;
+
+  var done = false;
   this.tiles = [];
   this.splatter_items = [];
   this.bg = new Image();

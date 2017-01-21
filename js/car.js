@@ -1,7 +1,3 @@
-var cars = ["img/tank-roll.png", "img/car1-roll.png"];
-var width = 1800;
-var lanes = [50, 150, 250, 350, 450];
-
 function car(lane, start_position, speed, type){
   console.log("car getting initialized");
   this.x = start_position;
@@ -12,7 +8,7 @@ function car(lane, start_position, speed, type){
       scale: 4,
       width: 256,
       height: 32,
-      imagesrc: cars[type],
+      imagesrc: car_sprites[type],
       numberOfFrames: 8,
       ticksPerFrame: 8,
       loop: true
@@ -29,11 +25,11 @@ function car(lane, start_position, speed, type){
 
   this.update = (delta) => {
     this.x = this.x + speed * delta / 1000;
-    if(this.x > width / 2){
-        this.x -= width;
+    if(this.x > lane_width / 2){
+        this.x -= lane_width;
     }
-    if(this.x < -width/2){
-        this.x += width;
+    if(this.x < -lane_width/2){
+        this.x += lane_width;
     }
   }
   this.draw = (ctx) => {
