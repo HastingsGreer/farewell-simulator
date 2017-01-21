@@ -78,3 +78,7 @@ function splat_circle(x, y, s, c) {
 function splat_square(x, y, s, c){
     c.fillRect(x, y, s*5, s*5);
 }
+
+function clear_splat(){
+    sctx.clearRect(0, 0, 768, 768);
+}

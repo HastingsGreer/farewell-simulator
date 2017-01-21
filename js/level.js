@@ -51,7 +51,15 @@ function level(level_number){
             loop: true
         }));
         done = true;
-        setTimeout(() => {console.log("win"); window.game.stop(() => {init(level_number + 1)})}, 5000);
+        setTimeout(() => {
+            console.log("WIN"); 
+            window.game.stop(() => {
+              clear_splat();
+              init(level_number + 1);
+            });
+          }, 
+          4000
+        );
     }
 
     for (var i = 0, len = this.cars.length; i < len; i++) {
@@ -61,7 +69,14 @@ function level(level_number){
     if(any_colission && ! done){
         //draw splash screen
         done = true;
-        setTimeout(() => {console.log("hi"); window.game.stop(() => {init(level_number)})}, 5000);
+        setTimeout(() => {
+            console.log("LOSS"); 
+            window.game.stop(() => {
+              init(level_number);
+            });
+          }, 
+          3000
+        );
         console.log("asdf");
     }
   }
@@ -76,7 +91,6 @@ function level(level_number){
       for (var i = 0, len = this.guests.length; i < len; i++) {
           this.guests[i].start();
       }
-
   }
 
   this.death_callback = (x, y, direction) => {
