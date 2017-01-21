@@ -44,11 +44,11 @@ function level(level_number){
       Let the level draw itself.
     */
     ctx.drawImage(this.bg, 0, 0);
-    for (var i = 0, len = this.guests.length; i < len; i++) {
-        this.guests[i].draw(ctx);
-    }
-    for (var i = 0, len = this.cars.length; i < len; i++) {
-        this.cars[i].draw(ctx);
+
+    var actors = (this.guests.concat(this.cars)).sort((a, b) => {return a.y - b.y});
+
+    for (var i = 0, len = actors.length; i < len; i++) {
+        actors[i].draw(ctx);
     }
   }
 }
