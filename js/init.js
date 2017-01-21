@@ -49,7 +49,8 @@ function level_init(levelID) {
                     new car(3, 500, 400, 1),
                     new car(3, 700, 400, 0)];
 
-            guests = [new guest(110, 1),
+            guests = [new guest(90, 1),
+                new guest(110, 1),
                      new guest(130, 1),
                      new guest(150, 1),
                      new guest(170, 0)];
