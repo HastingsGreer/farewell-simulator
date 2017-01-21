@@ -3,11 +3,17 @@ function init(){
     Called by index.html on page load.
     This is the entry point for this code.
   */
-  document.getElementById()
+  var canvas = document.getElementById("game");
+  window.game = Game(canvas);
 }
 
 
-function game(){
+function Game(canvas){
+
+  /* 
+    here's the game initialization code
+  */
+  this.canvas = canvas;
   
   this.update = function(){
     /*
