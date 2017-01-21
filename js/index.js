@@ -21,12 +21,12 @@ var Game = function(canvas){
   this.ctx.imageSmoothingEnabled = false;
 
   this.lastFrameTimeMs = 0;
-  this.interval = 33; //ms
 
   this.level_number = 0;
   this.level = new level(this.level_number);
-
   this.waver = new waver(this.level.onStartWave, this.level.onEndWave, this.ctx);
+
+  this.paused = false;
 
   this.mainLoop = (timestamp) => {
     var delta = timestamp - this.lastFrameTimeMs; // get the delta time since last frame
@@ -41,8 +41,10 @@ var Game = function(canvas){
       Handle the game update logic here.
       Don't update the canvas, just the internal state.
     */
-    this.waver.update();
-    this.level.update(delta);
+    if (!this.paused){
+      this.waver.update();
+      this.level.update(delta);
+    }
     if(delta > 22) {console.log(delta);}
 
   }

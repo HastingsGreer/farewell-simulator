@@ -1,6 +1,5 @@
 
 function level(level_number){
-
   /*
     Initialize the level.
     This involves deciding positions of things
@@ -8,9 +7,10 @@ function level(level_number){
   */
   console.log("level getting initilized");
 
-  this.cars = [new car(0, {x:100, y:100}, 400, 0),
-               new car(0, {x:100, y:200}, -400, 1)];
-  this.guests = [new guest(0, 600, 0), new guest(100, 600, 1)];
+  this.cars = [new car(0, 100, 400, 0),
+               new car(1, 100, -400, 1)];
+  this.guests = [new guest(0, 600, 0), 
+               new guest(100, 600, 1)];
 
   this.bg = new Image();
   this.bg.src = 'img/bg.png';
@@ -19,11 +19,21 @@ function level(level_number){
     /*
       Run whatever update code is needed for the level
     */
-    for (var i = 0, len = this.guests.length; i < len; i++) {
-        this.guests[i].update(delta);
+    var any_colission = false;
+    
+    for (var i = 0, len = this.guests.length; i < len; i++){
+      var collision = this.guests[i].check_collision(cars);
+      if (collision != "none"){
+        any_colission = true;
+      }
     }
+    
+    for (var i = 0, len = this.guests.length; i < len; i++) {
+      this.guests[i].update(delta);
+    }
+    
     for (var i = 0, len = this.cars.length; i < len; i++) {
-        this.cars[i].update(delta);
+      this.cars[i].update(delta);
     }
   }
 
