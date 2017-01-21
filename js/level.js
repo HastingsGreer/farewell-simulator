@@ -6,11 +6,11 @@ function level(level_number){
     This involves drawing the background.
   */
   console.log("level getting initilized");
-
+  var done = false;
   var temp = level_init(level_number);
   this.cars = temp.cars;
   this.guests = temp.guests;
-  
+
   this.splatter_items = [];
 
   this.bg = new Image();
@@ -28,6 +28,7 @@ function level(level_number){
         any_colission = true;
         this.guests[i].die(collision_dir, this.death_callback);
       }
+
     }
 
     for (var i = 0, len = this.guests.length; i < len; i++) {
@@ -36,6 +37,12 @@ function level(level_number){
 
     for (var i = 0, len = this.cars.length; i < len; i++) {
       this.cars[i].update(delta);
+    }
+
+    if(any_colission && ! done){
+        done = true;
+        setTimeout(() => {console.log("hi"); window.game.stop(init)}, 3000);
+        console.log("asdf");
     }
   }
 
