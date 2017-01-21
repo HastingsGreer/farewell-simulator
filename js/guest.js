@@ -3,7 +3,7 @@ var crossing_x = 300;
 var car_height = 80;
 var guestFronts = spriteList(["img/pirate-front.png", "img/general-front.png"])
 var guestBacks = spriteList(["img/pirate-back.png", "img/general-back.png"])
-var speed = 100;
+var speed = 200;
 function guest(x, y, type){
      this.x = x;
      this.y = y;
