@@ -17,8 +17,8 @@ function level_init(levelID) {
     var guests;
     switch (levelID) {
         case -1:
-            cars = random_cars(levelID);
-            guests = random_guests(levelID);
+            cars = random_cars(initial_difficulty);
+            guests = random_guests(initial_difficulty);
             break;
         case 0:
             cars = [new car(0, 100, 400, 1),
@@ -71,26 +71,27 @@ function level_init(levelID) {
     };
 
 }
-var random_cars = (level_number) => {
+var random_cars = (difficulty) => {
     // cars per lane = Math.round (1 * level_number);
     var car_arr = [];
     for (var i=0, len = lanes.length; i < len; i++){
 
-      var cars_in_lane = Math.round( level_number * cars_per_lane_scalar + Math.random() );
+      var cars_in_lane = Math.round( difficulty * cars_per_lane_scalar + Math.random() );
       
       var lane_direction = Math.random() < 5.0 ? 0 : 1;
       var lane_speed = (
-          default_car_speed + ( Math.random() * (level_number * 100) * rand_sign() )
+          default_car_speed + ( Math.random() * (difficulty * 100) * rand_sign() )
         ) * (
           rand_sign()
         );
       
       for (var j=0; j < cars_in_lane; j++){
         car_arr.push(
-          new car(i, 
-            Math.floor(lane_width * Math.random()),
-            lane_speed,
-            Math.round(Math.random() * car_sprites.length)
+          new car(
+            i, //lane 
+            Math.floor(lane_width * Math.random()), // position
+            lane_speed, // speed
+            Math.round(Math.random() * (car_sprites.length - 1)) //type
           )
         );
       }
@@ -98,6 +99,25 @@ var random_cars = (level_number) => {
     return car_arr;
 }
 
-var random_guests = (level_number) => {
+var random_guests = (difficulty) => {
     var guest_arr = [];
+    var last_guest_x = 300;
+    for (var i = 0, len=random_guests_count; i<len; i++){
+      
+      var guest_x = ( last_guest_x -
+        Math.random() * difficulty * difficulty_increase_scalar);
+      
+      guest_arr.push(
+        new guest(
+          guest_x, 
+          Math.round(Math.random() * (guestFronts.length - 1))
+        )
+      );
+      
+      last_guest_x = guest_x; 
+
+      if (i % 4 == 0)
+        difficulty++;
+    }
+    return guest_arr;
 }
