@@ -1,46 +1,43 @@
 function sprite (options) {
-    var that = {},
-        frameIndex = 0
-        tickCount = 0
-        ticksPerFrame = options.ticksPerFrame || 0;
-        numberOfFrames = options.numberOfFrames || 1;
+    var frameIndex = 0;
+    var tickCount = 0;
+    var ticksPerFrame = options.ticksPerFrame || 0;
+    var numberOfFrames = options.numberOfFrames || 1;
 
-    that.context = null;
+    this.context = null;
     this.scale = options.scale;
-    that.width = options.width;
-    that.height = options.height;
-    that.image = options.image;
+    this.width = options.width;
+    this.height = options.height;
+    this.image = new Image();
+    this.image.src = options.imagesrc;
 
-    that.render = function(ctx, x, y) {
-        that.context = ctx;
+    this.render = (ctx, x, y) => {
+        this.context = ctx;
         //context.clearRext(0, 0, that.width, that.height);
-        that.context.drawImage(
-            that.image,
-            frameIndex * that.width / numberOfFrames,
+        this.context.drawImage(
+            this.image,
+            frameIndex * this.width / numberOfFrames,
             0,
-            that.width / numberOfFrames,
-            that.height,
+            this.width / numberOfFrames,
+            this.height,
             x,
             y,
-            scale * that.width / numberOfFrames,
-            scale * that.height);
+            this.scale * this.width / numberOfFrames,
+            this.scale * this.height);
     }
 
-    that.loop = options.loop;
+    this.loop = options.loop;
 
-    that.update = function () {
+    this.update = () => {
         tickCount++;
 
         if(tickCount > ticksPerFrame) {
             tickCount = 0;
-            frameIndex++;
             if(frameIndex < numberOfFrames - 1) {
                 frameIndex++;
-            } else if(that.loop) {
+            } else if(this.loop) {
                 frameIndex = 0;
             }
         }
     };
-
-    return that;
 }

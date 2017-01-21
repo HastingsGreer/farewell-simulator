@@ -1,8 +1,8 @@
 var crossing_x = 300;
 var initial_y = 630;
 var car_height = 80;
-var guestFronts = spriteList(["img/pirate-front-walk.png", "img/pirate-front-walk.png"]);
-var guestBacks = spriteList(["img/pirate-back-walk.png", "img/pirate-back-walk.png"]);
+var guestFronts = ["img/pirate-front-walk.png", "img/pirate-front-walk.png"];
+var guestBacks = ["img/pirate-back-walk.png", "img/pirate-back-walk.png"];
 var speed = 200;
 
 function guest(x, type){
@@ -11,6 +11,27 @@ function guest(x, type){
     this.crossing = false;
     this.done = false;
     this.going = 1;
+
+
+    this.front_sprite = new sprite({
+        scale: 4,
+        width: 256,
+        height: 32,
+        imagesrc: guestFronts[type],
+        numberOfFrames: 8,
+        ticksPerFrame: 8,
+        loop: true
+    });
+
+    this.back_sprite = new sprite({
+        scale: 4,
+        width: 256,
+        height: 32,
+        imagesrc: guestBacks[type],
+        numberOfFrames: 8,
+        ticksPerFrame: 8,
+        loop: true
+    });
 
     this.sprite_width = 128;
     this.sprite_height = 128;
@@ -50,22 +71,21 @@ function guest(x, type){
             }
         }
         this.done = this.y < (0 - this.sprite_height);
-      }
 
-      // now update the sprites
-      if (this.going && !this.done){
-        if (this.crossing)
-          guestBacks[type].update();
-        else
-          guestFronts[type].update();
+        if (this.going){
+          if (this.crossing)
+            this.back_sprite.update();
+          else
+            this.front_sprite.update();
+        }
       }
     }
 
     this.draw = (ctx) => {
       if (this.crossing && this.going)
-        guestBacks[type].render(ctx, this.x, this.y);          
+        this.back_sprite.render(ctx, this.x, this.y);          
       else
-        guestFronts[type].render(ctx, this.x, this.y);
+        this.front_sprite.render(ctx, this.x, this.y);
 
       debug_rect(ctx,
           this.x + this.hittbox_x_offset,
