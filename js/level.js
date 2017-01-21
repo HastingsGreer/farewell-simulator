@@ -12,7 +12,7 @@ function level(level_number){
   this.guests = [];
 
   this.bg = new Image();
-  this.bg.src = '/img/bg.png';
+  this.bg.src = 'img/bg.png';
 
   this.update = (delta) => {
     /* 
