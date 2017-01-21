@@ -32,6 +32,18 @@ function level_init(levelID) {
                      new guest(200, 1)];
             break;
 
+        case 2:
+            cars = [new car(0, 100, 400, 0),
+                    new car(1, 100, -400, 1),
+                    new car(3, 300, 300, 0),
+                    new car(3, -700, 300, 0)];
+
+            guests = [new guest(-100, 0),
+                     new guest(00, 1),
+                     new guest(100, 1),
+                     new guest(150, 1)];
+            break;
+
         default:
             console.log("PANIC, why did you pass", levelID, "as level ID?");
 
