@@ -6,9 +6,12 @@ function level(level_number){
     This involves drawing the background.
   */
   console.log("level getting initilized");
+
   var temp = level_init(level_number);
   this.cars = temp.cars;
   this.guests = temp.guests;
+  
+  this.splatter_items = [];
 
   this.bg = new Image();
   this.bg.src = 'img/bg.png';
