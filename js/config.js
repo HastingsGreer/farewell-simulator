@@ -3,7 +3,7 @@ var initial_difficulty = 1;
 
 // Car config
 var lanes = [50, 150, 250, 350, 450];
-var cars_per_lane_scalar = .6;
+var cars_per_lane_scalar = 2;
 var default_car_speed = 400;
 var lane_width = 1800;
 
@@ -11,7 +11,7 @@ var lane_width = 1800;
 var crossing_x = 300;
 var initial_guest_gap = 150; //px
 var random_guests_count = 30;
-var difficulty_increase_scalar = 20; //px
+var difficulty_increase_scalar = 30; //px
 
 // Sprites - car
 var car_sprites = ["img/tank-roll.png", "img/car1-roll.png"];

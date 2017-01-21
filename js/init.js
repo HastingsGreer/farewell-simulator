@@ -76,7 +76,7 @@ var random_cars = (difficulty) => {
     var car_arr = [];
     for (var i=0, len = lanes.length; i < len; i++){
 
-      var cars_in_lane = Math.round( difficulty * cars_per_lane_scalar + Math.random() );
+      var cars_in_lane = Math.round( difficulty * cars_per_lane_scalar * Math.random() );
       
       var lane_direction = Math.random() < 5.0 ? 0 : 1;
       var lane_speed = (
