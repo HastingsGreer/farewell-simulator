@@ -28,6 +28,11 @@ function car(lane, start_position, speed, type){
   }
   this.draw = (ctx) => {
       ctx.drawImage(cars[type], this.x, this.y, this.sprite_width, this.sprite_height);
+      debug_rect(ctx, 
+          this.x + this.hittbox_x_offset,
+          this.y + this.hitbox_y_offset,
+          this.hitbox_width,
+          this.hitbox_height);
   }
   this.check_collision = (gx, gy, gwidth, gheight) => {
     var hitbox_left_x = this.x + this.hittbox_x_offset;

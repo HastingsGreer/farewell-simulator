@@ -44,14 +44,16 @@ function guest(x, y, type){
       }
     }
     this.draw = (ctx) => {
-       if(this.crossing && this.going){
-           ctx.drawImage(guestBacks[type], this.x, this.y, this.sprite_width, this.sprite_height);
-       } else {
-           ctx.drawImage(guestFronts[type], this.x, this.y, this.sprite_width, this.sprite_height);
-       }
-       if (window.game_debug){
-
-       }
+      if(this.crossing && this.going){
+        ctx.drawImage(guestBacks[type], this.x, this.y, this.sprite_width, this.sprite_height);
+      } else {
+        ctx.drawImage(guestFronts[type], this.x, this.y, this.sprite_width, this.sprite_height);
+      }
+      debug_rect(ctx, 
+          this.x + this.hittbox_x_offset,
+          this.y + this.hitbox_y_offset,
+          this.hitbox_width,
+          this.hitbox_height);
     }
 
     this.check_collision = (cars) => {

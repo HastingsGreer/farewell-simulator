@@ -5,7 +5,7 @@ function init(){
   */
   var canvas = document.getElementById("game");
   window.game = new Game(canvas);
-  window.game_debug = false;
+  window.game_debug = true;
 }
 
 
@@ -58,10 +58,24 @@ var Game = function(canvas){
       After the updates have been written to the game state,
       read the state and decide what changes to make to the canvas.
     */
+    // this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.level.draw(this.ctx);
     this.waver.draw();
   }
 
   // When init is done, begin the game.
   window.requestAnimationFrame(this.mainLoop);
+}
+
+function debug_rect(ctx, x, y, width, height){
+  if (window.game_debug){
+      ctx.beginPath();
+      ctx.strokeStyle="red";
+      ctx.rect(
+        x,
+        y,
+        width,
+        height);
+      ctx.stroke();
+  }
 }
