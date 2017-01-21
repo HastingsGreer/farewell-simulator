@@ -1,5 +1,5 @@
 console.log("I exist");
-var cars = spriteList(["img/car1.png", "img/tank.png"]);
+var cars = spriteList(["img/tank-roll.png", "img/tank-roll.png"]);
 var width = 1800;
 var lanes = [50, 150, 250, 350, 450];
 
@@ -27,8 +27,10 @@ function car(lane, start_position, speed, type){
     }
   }
   this.draw = (ctx) => {
-      ctx.drawImage(cars[type], this.x, this.y, this.sprite_width, this.sprite_height);
-      debug_rect(ctx, 
+      cars[type].update(ctx);
+      cars[type].render(ctx, this.x, this.y);
+    //   ctx.drawImage(cars[type], this.x, this.y, this.sprite_width, this.sprite_height);
+      debug_rect(ctx,
           this.x + this.hittbox_x_offset,
           this.y + this.hitbox_y_offset,
           this.hitbox_width,
@@ -47,5 +49,5 @@ function car(lane, start_position, speed, type){
       }
     }
     return "lived";
-  } 
+  }
 };

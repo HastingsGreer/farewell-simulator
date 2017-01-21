@@ -5,13 +5,14 @@ function sprite (options) {
         ticksPerFrame = options.ticksPerFrame || 0;
         numberOfFrames = options.numberOfFrames || 1;
 
-    that.context = options.context;
+    that.context = null;
+    this.scale = options.scale;
     that.width = options.width;
     that.height = options.height;
     that.image = options.image;
 
-    that.render = function() {
-        // that.context = ctx;
+    that.render = function(ctx, x, y) {
+        that.context = ctx;
         //context.clearRext(0, 0, that.width, that.height);
         that.context.drawImage(
             that.image,
@@ -19,16 +20,16 @@ function sprite (options) {
             0,
             that.width / numberOfFrames,
             that.height,
-            0,
-            0,
-            that.width / numberOfFrames,
-            that.height);
+            x,
+            y,
+            scale * that.width / numberOfFrames,
+            scale * that.height);
     }
 
     that.loop = options.loop;
 
-    that.update = function () {
-        //that.context = ctx;
+    that.update = function (ctx) {
+        that.context = ctx;
         tickCount++;
 
         if(tickCount > ticksPerFrame) {
