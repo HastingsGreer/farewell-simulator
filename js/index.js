@@ -3,6 +3,7 @@ function init(){
     Called by index.html on page load.
     This is the entry point for this code.
   */
+  document.getElementById()
 }
 
 
