@@ -15,6 +15,10 @@ var Game = function(canvas){
   */
   this.canvas = canvas;
   this.ctx = canvas.getContext('2d');
+  this.ctx.mozImageSmoothingEnabled = false;
+  this.ctx.webkitImageSmoothingEnabled = false;
+  this.ctx.msImageSmoothingEnabled = false;
+  this.ctx.imageSmoothingEnabled = false;
   this.waver = new waver(function(){}, function(){}, this.ctx);
   this.lastFrameTimeMs = 0;
   this.interval = 33; //ms

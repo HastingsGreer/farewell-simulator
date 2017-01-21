@@ -51,7 +51,8 @@ function waver (onStartWave, onEndWave, ctx){
      ctx.save();
      ctx.translate(shoulderX,shoulderY);
      ctx.rotate(Math.atan2(this.mouseX -shoulderX, -(this.mouseY - shoulderY)));
-     ctx.translate(-15, -30);
+     ctx.scale(12, 12);
+     ctx.translate(-16, -16);
      ctx.drawImage(hand, 0, 0);
      ctx.restore();
   }

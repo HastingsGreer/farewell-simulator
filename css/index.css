@@ -1,0 +1,5 @@
+#game {
+    border: black 2px;
+    image-rendering: -webkit-optimize-contrast; /* webkit */
+    image-rendering: -moz-crisp-edges /* Firefox */
+}
