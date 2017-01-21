@@ -27,6 +27,14 @@ function guest(x, y, type){
     this.start = () => {
        this.going = 1;
     }
+
+    this.die = (direction) => {
+      // direction in radians.
+      // violently kills guest in the specified direction.
+      this.done = true;
+      console.log("Dying in " + direction);
+      // Trigger death animation
+    }
     this.update = (delta) => {
       if (!this.done){
         if(this.crossing){
@@ -58,19 +66,19 @@ function guest(x, y, type){
 
     this.check_collision = (cars) => {
       // only check collisions if this.crossing and not this.done
-      // RETURN the type of colission that happened.
+      // RETURN the direction of the collision in radians
       if (this.crossing && !this.done){
         
         var hitbox_left_x = this.x + this.hittbox_x_offset;
         var hitbox_top_y = this.y  + this.hitbox_y_offset;
 
         for (var i=0, len = cars.length; i <  len; i++){
-          var collision_type = cars[i].check_collision(hitbox_left_x, hitbox_top_y, this.hitbox_width, this.hitbox_height);
-          if (collision_type != "none")
-            return collision_type;
+          var collision_dir = cars[i].check_collision(hitbox_left_x, hitbox_top_y, this.hitbox_width, this.hitbox_height);
+          if (collision_dir != -1)
+            return collision_dir;
         }
       
       }
-      return "none";
+      return -1;
     }
 }

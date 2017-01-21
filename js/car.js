@@ -40,12 +40,13 @@ function car(lane, start_position, speed, type){
 
     if (hitbox_top_y + this.hitbox_height > gy && hitbox_top_y < gy + gheight){
       if (hitbox_left_x + this.hitbox_width > gx && hitbox_left_x < gx + gheight){
-        // corner collision car hit guest from the front.
-        console.log("HIT");
-        return "front";
+        // HIT - return angle between hitboxes
+        var trans_x = gx - hitbox_left_x;
+        var trans_y = gy - hitbox_top_y;
+        return Math.atan2(trans_x, trans_y);
       }
     }
 
-    return "none";
+    return -1;
   } 
 };
