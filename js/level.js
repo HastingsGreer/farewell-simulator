@@ -22,7 +22,7 @@ function level(level_number){
     var any_colission = false;
     
     for (var i = 0, len = this.guests.length; i < len; i++){
-      var collision = this.guests[i].check_collision(cars);
+      var collision = this.guests[i].check_collision(this.cars);
       if (collision != "none"){
         any_colission = true;
       }
