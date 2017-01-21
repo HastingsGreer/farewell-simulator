@@ -71,7 +71,7 @@ var Game = function(canvas){
       After the updates have been written to the game state,
       read the state and decide what changes to make to the canvas.
     */
-    // this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.level.draw(this.ctx);
     this.waver.draw();
   }

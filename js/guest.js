@@ -49,13 +49,18 @@ function guest(x, type){
        this.going = 1;
     }
 
-    this.die = (direction) => {
+    this.die = (direction, death_callback) => {
       // direction in radians.
       // violently kills guest in the specified direction.
       this.done = true;
       this.going = 0;
       console.log("Dying in " + direction);
       // Trigger death animation
+      death_callback(
+        this.x + Math.floor(this.sprite_width/2),
+        this.y + Math.floor(this.sprite_height/2),
+        direction
+      );
     }
     this.update = (delta) => {
       if (!this.done){
@@ -82,11 +87,12 @@ function guest(x, type){
     }
 
     this.draw = (ctx) => {
-      if (this.crossing && this.going)
-        this.back_sprite.render(ctx, this.x, this.y);          
-      else
-        this.front_sprite.render(ctx, this.x, this.y);
-
+      if (!this.done){
+        if (this.crossing && this.going)
+          this.back_sprite.render(ctx, this.x, this.y);          
+        else
+          this.front_sprite.render(ctx, this.x, this.y);       
+      }
       debug_rect(ctx,
           this.x + this.hittbox_x_offset,
           this.y + this.hitbox_y_offset,

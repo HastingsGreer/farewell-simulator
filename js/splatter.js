@@ -1,6 +1,12 @@
 var shadow = document.createElement('canvas'),
     sctx = shadow.getContext('2d');
 
+
+sctx.fillStyle = '#ff0000'; // rgba(250,0,0,0.1)'
+
+shadow.width = 768;
+shadow.height = 768;
+
 var options = {
     scatter: .08,
     gravity: 0,
@@ -11,24 +17,29 @@ var options = {
 
 }
 
-function splat(x, y, arr) {
+function splat(x, y, direction, arr) {
 
     for (var i = 0; i < 30; i++) {
         var s = Math.random() * Math.PI;
         var dirx = (((Math.random() < .5) ? 3 : -3) * (Math.random() * 3)) * options.scatter;
         var diry = (((Math.random() < .5) ? 3 : -3) * (Math.random() * 3)) * options.scatter;
 
+        console.log("Direction: ", dirx, diry);
+
         arr.push({
             x: x,
             y: y,
-            dx: dirx + mouse.dx,
-            dy: diry + mouse.dy,
+            dx: dirx + Math.cos(direction + Math.PI) * 6,
+            dy: diry + Math.sin(direction + Math.PI) * 6,
             size: s
         })
     }
 }
 
 function drawsplat(ctx, arr) {
+
+    sctx.fillStyle = "#ff0000";
+    ctx.fillStyle = "#ff0000";
 
     var i = arr.length
     while (i--) {
@@ -57,7 +68,7 @@ function drawsplat(ctx, arr) {
 }
 
 function splat_circle(x, y, s, c) {
-
+    console.log("Circle")
     c.beginPath()
     c.arc(x, y, s * 5, 0, 2 * Math.PI, false);
     c.fill()

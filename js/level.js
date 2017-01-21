@@ -26,7 +26,7 @@ function level(level_number){
       var collision_dir = this.guests[i].check_collision(this.cars);
       if (collision_dir != "lived" ){
         any_colission = true;
-        this.guests[i].die(collision_dir);
+        this.guests[i].die(collision_dir, this.death_callback);
       }
     }
 
@@ -51,6 +51,14 @@ function level(level_number){
       }
 
   }
+
+  this.death_callback = (x, y, direction) => {
+    // called upon guest death,
+    // with x, y, and direction of death
+    splat(x, y, direction, this.splatter_items);
+    console.log(x, y, direction);
+  }
+
   this.draw = (ctx) => {
     /*
       Let the level draw itself.
