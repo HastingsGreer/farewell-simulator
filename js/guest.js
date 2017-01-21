@@ -15,8 +15,11 @@ function guest(x, y, type){
     this.sprite_width = 128;
     this.sprite_height = 128;
 
-    this.hitbox_width = 96;
-    this.hitbox_height = 96;
+    this.hitbox_width = 64;
+    this.hitbox_height = 32;
+
+    this.hittbox_x_offset = 32;
+    this.hitbox_y_offset = 96;
     
     this.stop = () => {
        this.going = 0;
@@ -53,8 +56,8 @@ function guest(x, y, type){
       // RETURN the type of colission that happened.
       if (this.crossing && !this.done){
         
-        var hitbox_left_x = this.x + Math.floor((this.sprite_width - this.hitbox_width) / 2);
-        var hitbox_top_y = this.y  + Math.floor((this.sprite_height - this.hitbox_height) / 2);
+        var hitbox_left_x = this.x + this.hittbox_x_offset;
+        var hitbox_top_y = this.y  + this.hitbox_y_offset;
 
         for (var i=0, len = cars.length; i <  len; i++){
           var collision_type = cars[i].check_collision(hitbox_left_x, hitbox_top_y, this.hitbox_width, this.hitbox_height);

@@ -5,6 +5,7 @@ function init(){
   */
   var canvas = document.getElementById("game");
   window.game = new Game(canvas);
+  window.game_debug = false;
 }
 
 

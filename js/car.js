@@ -12,7 +12,10 @@ function car(lane, start_position, speed, type){
   this.sprite_height = 128;
 
   this.hitbox_width = 96;
-  this.hitbox_height = 96;
+  this.hitbox_height = 56;
+
+  this.hittbox_x_offset = 16;
+  this.hitbox_y_offset = 64;
 
   this.update = (delta) => {
     this.x = this.x + speed * delta / 1000;
@@ -27,8 +30,8 @@ function car(lane, start_position, speed, type){
       ctx.drawImage(cars[type], this.x, this.y, this.sprite_width, this.sprite_height);
   }
   this.check_collision = (gx, gy, gwidth, gheight) => {
-    var hitbox_left_x = this.x + Math.floor((this.sprite_width - this.hitbox_width) / 2);
-    var hitbox_top_y = this.y + Math.floor((this.sprite_height - this.hitbox_height) / 2);
+    var hitbox_left_x = this.x + this.hittbox_x_offset;
+    var hitbox_top_y = this.y + this.hitbox_y_offset;
 
     if (hitbox_top_y + this.hitbox_height > gy && hitbox_top_y < gy + gheight){
       if (hitbox_left_x + this.hitbox_width > gx && hitbox_left_x < gx + gheight){
