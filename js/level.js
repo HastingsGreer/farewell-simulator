@@ -41,7 +41,15 @@ function level(level_number){
     }
 
     if(all_guests_lived & ! done){
-        //draw splash screen
+        this.tiles.push( new sprite({
+            scale: 4,
+            width: 192 * 15,
+            height: 32,
+            imagesrc: "img/you-win.png",
+            numberOfFrames: 15,
+            ticksPerFrame: 8,
+            loop: true
+        }));
         done = true;
         setTimeout(() => {console.log("win"); window.game.stop(() => {init(level_number + 1)})}, 5000);
     }
@@ -92,7 +100,8 @@ function level(level_number){
         actors[i].draw(ctx);
     }
     for (var i = 0, len = this.tiles.length; i < len; i++) {
-        this.tiles[i].render(ctx);
+        this.tiles[i].render(ctx, 0, 0);
+        this.tiles[i].update();
     }
   }
 }
