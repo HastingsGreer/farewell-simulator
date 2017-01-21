@@ -19,6 +19,9 @@ var Game = function(canvas){
   this.lastFrameTimeMs = 0;
   this.interval = 33; //ms
 
+  this.level_number = 0;
+  this.level = new level(this.level_number);
+
   this.mainLoop = (timestamp) => {
     var delta = timestamp - this.lastFrameTimeMs; // get the delta time since last frame
     this.lastFrameTimeMs = timestamp;
@@ -33,6 +36,7 @@ var Game = function(canvas){
       Don't update the canvas, just the internal state.
     */
     this.waver.update();
+    this.level.update(delta);
     console.log(delta);
 
   }
@@ -42,6 +46,7 @@ var Game = function(canvas){
       After the updates have been written to the game state,
       read the state and decide what changes to make to the canvas.
     */
+    this.level.draw(this.ctx);
     this.waver.draw();
   }
 

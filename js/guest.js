@@ -1,4 +1,4 @@
 
-function guest(){
-  
+function guest(line_position, x, y){
+
 }
