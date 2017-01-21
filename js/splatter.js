@@ -1,6 +1,9 @@
+var shadow = document.createElement('canvas'),
+    sctx = shadow.getContext('2d');
+
 var options = {
-    scatter: 0,
-    gravity: 0.2,
+    scatter: .08,
+    gravity: 0,
     consistency: 0.04,
     pollock: false,
     burst: true,
@@ -23,10 +26,9 @@ function splat(x, y, arr) {
             size: s
         })
     }
-
 }
 
-function drawsplat(arr) {
+function drawsplat(ctx, arr) {
 
     var i = arr.length
     while (i--) {
@@ -34,7 +36,7 @@ function drawsplat(arr) {
         var x = t.x,
             y = t.y,
             s = t.size;
-        circle(x, y, s, ctx)
+        splat_circle(x, y, s, ctx)
 
         t.dy -= options.gravity
         t.x -= t.dx
@@ -42,7 +44,7 @@ function drawsplat(arr) {
         t.size -= 0.05;
 
         if (arr[i].size < 0.3 || Math.random() < options.consistency) {
-            circle(x, y, s, sctx)
+            splat_circle(x, y, s, sctx)
             arr.splice(i, 1)
 
         }
@@ -52,4 +54,12 @@ function drawsplat(arr) {
     ctx.drawImage(shadow, 0, 0)    
     //sctx.drawImage(shadow, 0, 0.5)
 
+}
+
+function splat_circle(x, y, s, c) {
+
+    c.beginPath()
+    c.arc(x, y, s * 5, 0, 2 * Math.PI, false);
+    c.fill()
+    c.closePath()
 }

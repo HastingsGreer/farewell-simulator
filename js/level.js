@@ -57,6 +57,9 @@ function level(level_number){
     */
     ctx.drawImage(this.bg, 0, 0);
 
+    // Draw splatter
+    drawsplat(ctx, this.splatter_items);
+
     var actors = (this.guests.concat(this.cars)).sort((a, b) => {return a.y - b.y});
 
     for (var i = 0, len = actors.length; i < len; i++) {
