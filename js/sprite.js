@@ -28,8 +28,7 @@ function sprite (options) {
 
     that.loop = options.loop;
 
-    that.update = function (ctx) {
-        that.context = ctx;
+    that.update = function () {
         tickCount++;
 
         if(tickCount > ticksPerFrame) {

@@ -32,6 +32,7 @@ function guest(x, type){
       // direction in radians.
       // violently kills guest in the specified direction.
       this.done = true;
+      this.going = 0;
       console.log("Dying in " + direction);
       // Trigger death animation
     }
@@ -50,17 +51,22 @@ function guest(x, type){
         }
         this.done = this.y < (0 - this.sprite_height);
       }
-    }
-    this.draw = (ctx) => {
-      if(this.crossing && this.going){
-        guestBacks[type].update(ctx);
-        guestBacks[type].render(ctx, this.x, this.y);
-        // ctx.drawImage(guestBacks[type], this.x, this.y, this.sprite_width, this.sprite_height);
-      } else {
-        guestFronts[type].update(ctx);
-        guestFronts[type].render(ctx, this.x, this.y);
-        // ctx.drawImage(guestFronts[type], this.x, this.y, this.sprite_width, this.sprite_height);
+
+      // now update the sprites
+      if (this.going && !this.done){
+        if (this.crossing)
+          guestBacks[type].update();
+        else
+          guestFronts[type].update();
       }
+    }
+
+    this.draw = (ctx) => {
+      if (this.crossing && this.going)
+        guestBacks[type].render(ctx, this.x, this.y);          
+      else
+        guestFronts[type].render(ctx, this.x, this.y);
+
       debug_rect(ctx,
           this.x + this.hittbox_x_offset,
           this.y + this.hitbox_y_offset,
