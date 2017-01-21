@@ -1,29 +1,54 @@
 
 function level(level_number){
 
-  /* 
+  /*
     Initialize the level.
     This involves deciding positions of things
     This involves drawing the background.
   */
-  console.log("level getting initilized"); 
-  
-  this.cars = [];
+  console.log("level getting initilized");
+
+  this.cars = [new car(0, {x:100, y:100}, 200, 0),
+               new car(0, {x:100, y:200}, -200, 1)];
   this.guests = [];
 
   this.bg = new Image();
   this.bg.src = 'img/bg.png';
 
   this.update = (delta) => {
-    /* 
+    /*
       Run whatever update code is needed for the level
     */
+    for (var i = 0, len = this.guests.length; i < len; i++) {
+        this.guests[i].update(delta);
+    }
+    for (var i = 0, len = this.cars.length; i < len; i++) {
+        this.cars[i].update(delta);
+    }
   }
 
+  this.onStartWave = () =>{
+      for (var i = 0, len = this.guests.length; i < len; i++) {
+          this.guests[i].stop();
+      }
+  }
+
+  this.onEndWave = () => {
+      for (var i = 0, len = this.guests.length; i < len; i++) {
+          this.guests[i].start();
+      }
+
+  }
   this.draw = (ctx) => {
     /*
       Let the level draw itself.
     */
     ctx.drawImage(this.bg, 0, 0);
+    for (var i = 0, len = this.guests.length; i < len; i++) {
+        this.guests[i].draw(ctx);
+    }
+    for (var i = 0, len = this.cars.length; i < len; i++) {
+        this.cars[i].draw(ctx);
+    }
   }
 }
