@@ -6,6 +6,7 @@ var guestBacks = ["img/pirate-back-walk.png", "img/pirate-back-walk.png"];
 var speed = 200;
 
 function guest(x, type){
+    console.log("guest getting initialized")
     this.x = x;
     this.y = initial_y;
     this.crossing = false;
@@ -54,7 +55,7 @@ function guest(x, type){
       // violently kills guest in the specified direction.
       this.done = true;
       this.going = 0;
-      console.log("Dying in " + direction);
+
       // Trigger death animation
       death_callback(
         this.x + Math.floor(this.sprite_width/2),
