@@ -26,9 +26,17 @@ function car(lane, start_position, speed, type){
   this.draw = (ctx) => {
       ctx.drawImage(cars[type], this.x, this.y, this.sprite_width, this.sprite_height);
   }
-  this.check_collision = (x, y, width, height) => {
+  this.check_collision = (gx, gy, gwidth, gheight) => {
     var hitbox_left_x = this.x + Math.floor((this.sprite_width - this.hitbox_width) / 2);
     var hitbox_top_y = this.y + Math.floor((this.sprite_height - this.hitbox_height) / 2);
+
+    if (hitbox_top_y + this.hitbox_height > gy && hitbox_top_y < gy + gheight){
+      if (hitbox_left_x + this.hitbox_width > gx && hitbox_left_x < gx + gheight){
+        // corner collision car hit guest from the front.
+        console.log("HIT");
+        return "front";
+      }
+    }
 
     return "none";
   } 
