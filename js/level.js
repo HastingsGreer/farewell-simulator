@@ -30,9 +30,18 @@ function level(level_number){
       }
 
     }
-
+    var all_guests_lived = true;
     for (var i = 0, len = this.guests.length; i < len; i++) {
       this.guests[i].update(delta);
+      if(this.guests[i].y > -128){
+          all_guests_lived = false;
+      }
+    }
+
+    if(all_guests_lived & ! done){
+        //draw splash screen
+        done = true;
+        setTimeout(() => {console.log("win"); window.game.stop(() => {init(level_number + 1)})}, 5000);
     }
 
     for (var i = 0, len = this.cars.length; i < len; i++) {
@@ -40,6 +49,7 @@ function level(level_number){
     }
 
     if(any_colission && ! done){
+        //draw splash screen
         done = true;
         setTimeout(() => {console.log("hi"); window.game.stop(() => {init(level_number)})}, 5000);
         console.log("asdf");
