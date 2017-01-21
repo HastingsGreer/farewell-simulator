@@ -10,7 +10,6 @@ function waver (onStartWave, onEndWave, ctx){
   this.update = () => {
       //get mousex, y
       if(this.mouseX != this.newX || this.mouseY != this.newY ){
-          console.log(this.mouseX);
           this.mouseX = this.newX;
           this.mouseY = this.newY;
          if(!this.waving){

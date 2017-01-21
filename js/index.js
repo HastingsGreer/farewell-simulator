@@ -43,7 +43,7 @@ var Game = function(canvas){
     */
     this.waver.update();
     this.level.update(delta);
-    console.log(delta);
+    if(delta > 22) {console.log(delta);}
 
   }
 

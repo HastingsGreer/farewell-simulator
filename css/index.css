@@ -1,5 +1,11 @@
-#game {
-    border: black 2px;
-    image-rendering: -webkit-optimize-contrast; /* webkit */
-    image-rendering: -moz-crisp-edges /* Firefox */
+canvas {
+    padding:0;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width:768;
+}
+
+body {
+    background-color: #404060;
 }
