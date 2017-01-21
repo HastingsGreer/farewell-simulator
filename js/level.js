@@ -63,7 +63,6 @@ function level(level_number){
     // called upon guest death,
     // with x, y, and direction of death
     splat(x, y, direction, this.splatter_items);
-    console.log(x, y, direction);
   }
 
   this.draw = (ctx) => {

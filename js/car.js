@@ -1,9 +1,9 @@
-console.log("I exist");
 var cars = ["img/tank-roll.png", "img/car1-roll.png"];
 var width = 1800;
 var lanes = [50, 150, 250, 350, 450];
 
 function car(lane, start_position, speed, type){
+  console.log("car getting initialized");
   this.x = start_position;
   this.y = lanes[lane];
   this.speed = speed;

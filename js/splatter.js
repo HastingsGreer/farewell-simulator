@@ -24,7 +24,8 @@ function splat(x, y, direction, arr) {
         var dirx = (((Math.random() < .5) ? 3 : -3) * (Math.random() * 3)) * options.scatter;
         var diry = (((Math.random() < .5) ? 3 : -3) * (Math.random() * 3)) * options.scatter;
 
-        console.log("Direction: ", dirx, diry);
+        if (window.game_debug)
+            console.log("Direction: ", dirx, diry);
 
         arr.push({
             x: x,
@@ -68,7 +69,6 @@ function drawsplat(ctx, arr) {
 }
 
 function splat_circle(x, y, s, c) {
-    console.log("Circle")
     c.beginPath()
     c.arc(x, y, s * 5, 0, 2 * Math.PI, false);
     c.fill()

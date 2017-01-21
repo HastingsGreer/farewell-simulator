@@ -5,12 +5,13 @@ function init(){
   */
   var canvas = document.getElementById("game");
   window.game = new Game(canvas);
-  window.game_debug = true;
+  window.game_debug = false;
 }
 
 
 var Game = function(canvas){
-
+  console.log("Loading FAREWELL SIMULATOR");
+  console.log("Get ready to say goodbye...");
   /*
     here's the game initialization code
   */
@@ -62,7 +63,9 @@ var Game = function(canvas){
       this.waver.update();
       this.level.update(delta);
     }
-    if (delta > 22) {console.log(delta);}
+    if (delta > 22)
+      if (window.game_debug)
+        console.log(delta);
 
   }
 
