@@ -1,4 +1,4 @@
-canvas {
+#game {
     padding:0;
     display:block;
     margin-left: auto;
@@ -8,4 +8,12 @@ canvas {
 
 body {
     background-color: #404060;
+}
+
+#camera {
+    position: fixed;
+    z-index: 6666;
+    top: 20px;
+    right: 20px;
+    opacity: 0.9;
 }
