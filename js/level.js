@@ -10,11 +10,8 @@ function level(level_number){
   var temp = level_init(level_number);
   this.cars = temp.cars;
   this.guests = temp.guests;
-
   this.tiles = [];
-
   this.splatter_items = [];
-
   this.bg = new Image();
   this.bg.src = 'img/bg.png';
 
@@ -24,6 +21,7 @@ function level(level_number){
     */
     var any_colission = false;
 
+    // Collision detection for all guests
     for (var i = 0, len = this.guests.length; i < len; i++){
       var collision_dir = this.guests[i].check_collision(this.cars);
       if (collision_dir != "lived" ){
@@ -32,14 +30,17 @@ function level(level_number){
       }
 
     }
+
+    // If the guests lived, update their walk positions
     var all_guests_lived = true;
     for (var i = 0, len = this.guests.length; i < len; i++) {
       this.guests[i].update(delta);
-      if(this.guests[i].y > -128){
+      if(this.guests[i].y > -128){ // MAGIC - height of a guest sprite
           all_guests_lived = false;
       }
     }
 
+    // WIN - proceed to next level
     if(all_guests_lived & ! done){
         this.tiles.push( new sprite({
             scale: 4,
@@ -66,8 +67,8 @@ function level(level_number){
       this.cars[i].update(delta);
     }
 
+    // LOSS - restart the level
     if(any_colission && ! done){
-        //draw splash screen
         done = true;
         setTimeout(() => {
             console.log("LOSS"); 
@@ -77,7 +78,6 @@ function level(level_number){
           }, 
           3000
         );
-        console.log("asdf");
     }
   }
 
