@@ -4,17 +4,17 @@ function init(){
     This is the entry point for this code.
   */
   var canvas = document.getElementById("game");
-  window.game = Game(canvas);
+  window.game = new Game(canvas);
 }
 
 
-function Game(canvas){
+var Game = function(canvas){
 
   /*
     here's the game initialization code
   */
   this.canvas = canvas;
-  this.waver = waver(canvas);
+  this.waver = new waver(canvas);
   this.lastFrameTimeMs = 0;
   this.interval = 33; //ms
 
