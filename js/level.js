@@ -6,11 +6,9 @@ function level(level_number){
     This involves drawing the background.
   */
   console.log("level getting initilized");
-
-  this.cars = [new car(0, 100, 400, 0),
-               new car(1, 100, -400, 1)];
-  this.guests = [new guest(0, 0),
-               new guest(100, 1)];
+  var temp = level_init(level_number);
+  this.cars = temp.cars;
+  this.guests = temp.guests;
 
   this.bg = new Image();
   this.bg.src = 'img/bg.png';
