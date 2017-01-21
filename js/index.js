@@ -31,6 +31,9 @@ var Game = function(canvas){
   this.mainLoop = (timestamp) => {
     var delta = timestamp - this.lastFrameTimeMs; // get the delta time since last frame
     this.lastFrameTimeMs = timestamp;
+    if{delta > 100){
+        delta = 100;
+    }
     this.update(delta);
     this.draw();
     window.requestAnimationFrame(this.mainLoop);
