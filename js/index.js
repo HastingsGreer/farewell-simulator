@@ -14,7 +14,8 @@ function Game(canvas){
     here's the game initialization code
   */
   this.canvas = canvas;
-  this.waver = waver(canvas);
+  this.ctx = canvas.getContext('2d');
+  this.waver = waver(function(){}, function(){}, this.ctx);
   this.lastFrameTimeMs = 0;
   this.interval = 33; //ms
 
