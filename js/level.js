@@ -41,7 +41,7 @@ function level(level_number){
 
     if(any_colission && ! done){
         done = true;
-        setTimeout(() => {console.log("hi"); window.game.stop(init)}, 5000);
+        setTimeout(() => {console.log("hi"); window.game.stop(() => {init(level_number)})}, 5000);
         console.log("asdf");
     }
   }
