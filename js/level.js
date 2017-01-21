@@ -11,6 +11,8 @@ function level(level_number){
   this.cars = temp.cars;
   this.guests = temp.guests;
 
+  this.tiles = [];
+
   this.splatter_items = [];
 
   this.bg = new Image();
@@ -88,6 +90,9 @@ function level(level_number){
 
     for (var i = 0, len = actors.length; i < len; i++) {
         actors[i].draw(ctx);
+    }
+    for (var i = 0, len = this.tiles.length; i < len; i++) {
+        this.tiles[i].render(ctx);
     }
   }
 }
