@@ -104,7 +104,7 @@ var random_guests = (difficulty) => {
     var last_guest_x = 300;
     for (var i = 0, len=random_guests_count; i<len; i++){
       
-      var guest_x = ( last_guest_x -
+      var guest_x = ( last_guest_x - initial_guest_gap +
         Math.random() * difficulty * difficulty_increase_scalar);
       
       guest_arr.push(
