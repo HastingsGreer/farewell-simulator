@@ -40,7 +40,7 @@ function guest(x, y, type){
                 this.x += speed / 5000 * delta * this.going;
             }
         }
-        this.done = this.y < 0;
+        this.done = this.y < (0 - this.sprite_height);
       }
     }
     this.draw = (ctx) => {
@@ -48,6 +48,9 @@ function guest(x, y, type){
            ctx.drawImage(guestBacks[type], this.x, this.y, this.sprite_width, this.sprite_height);
        } else {
            ctx.drawImage(guestFronts[type], this.x, this.y, this.sprite_width, this.sprite_height);
+       }
+       if (window.game_debug){
+
        }
     }
 
