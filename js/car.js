@@ -41,12 +41,11 @@ function car(lane, start_position, speed, type){
     if (hitbox_top_y + this.hitbox_height > gy && hitbox_top_y < gy + gheight){
       if (hitbox_left_x + this.hitbox_width > gx && hitbox_left_x < gx + gheight){
         // HIT - return angle between hitboxes
-        var trans_x = gx - hitbox_left_x;
-        var trans_y = gy - hitbox_top_y;
-        return Math.atan2(trans_x, trans_y);
+        var trans_x = (gx + (gwidth/2)) - (hitbox_left_x + (this.hitbox_width/2));
+        var trans_y = (gy + (gheight/2)) - (hitbox_top_y + (this.hitbox_height/2));
+        return Math.atan2(trans_y, trans_x);
       }
     }
-
-    return -1;
+    return "lived";
   } 
 };

@@ -74,11 +74,11 @@ function guest(x, y, type){
 
         for (var i=0, len = cars.length; i <  len; i++){
           var collision_dir = cars[i].check_collision(hitbox_left_x, hitbox_top_y, this.hitbox_width, this.hitbox_height);
-          if (collision_dir != -1)
+          if (collision_dir != "lived")
             return collision_dir;
         }
       
       }
-      return -1;
+      return "lived";
     }
 }

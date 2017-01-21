@@ -23,7 +23,7 @@ function level(level_number){
     
     for (var i = 0, len = this.guests.length; i < len; i++){
       var collision_dir = this.guests[i].check_collision(this.cars);
-      if (collision_dir != -1 ){
+      if (collision_dir != "lived" ){
         any_colission = true;
         this.guests[i].die(collision_dir);
       }
