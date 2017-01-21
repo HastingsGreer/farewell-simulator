@@ -11,7 +11,8 @@ function car(lane, start_position, speed, type){
       imagesrc: car_sprites[type],
       numberOfFrames: 8,
       ticksPerFrame: 8,
-      loop: true
+      loop: true,
+      flipped: this.speed < 0
   });
 
   this.sprite_width = 128;
