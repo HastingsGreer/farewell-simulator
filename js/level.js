@@ -9,8 +9,8 @@ function level(level_number){
 
   this.cars = [new car(0, 100, 400, 0),
                new car(1, 100, -400, 1)];
-  this.guests = [new guest(0, 600, 0), 
-               new guest(100, 600, 1)];
+  this.guests = [new guest(0, 0),
+               new guest(100, 1)];
 
   this.bg = new Image();
   this.bg.src = 'img/bg.png';
@@ -20,7 +20,7 @@ function level(level_number){
       Run whatever update code is needed for the level
     */
     var any_colission = false;
-    
+
     for (var i = 0, len = this.guests.length; i < len; i++){
       var collision_dir = this.guests[i].check_collision(this.cars);
       if (collision_dir != "lived" ){
@@ -28,11 +28,11 @@ function level(level_number){
         this.guests[i].die(collision_dir);
       }
     }
-    
+
     for (var i = 0, len = this.guests.length; i < len; i++) {
       this.guests[i].update(delta);
     }
-    
+
     for (var i = 0, len = this.cars.length; i < len; i++) {
       this.cars[i].update(delta);
     }

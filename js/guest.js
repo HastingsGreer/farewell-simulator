@@ -1,13 +1,13 @@
 var crossing_x = 300;
-
+var initial_y = 630;
 var car_height = 80;
 var guestFronts = spriteList(["img/pirate-front.png", "img/general-front.png"]);
 var guestBacks = spriteList(["img/pirate-back.png", "img/general-back.png"]);
 var speed = 200;
 
-function guest(x, y, type){
+function guest(x, type){
     this.x = x;
-    this.y = y;
+    this.y = initial_y;
     this.crossing = false;
     this.done = false;
     this.going = 1;
@@ -20,7 +20,7 @@ function guest(x, y, type){
 
     this.hittbox_x_offset = 32;
     this.hitbox_y_offset = 96;
-    
+
     this.stop = () => {
        this.going = 0;
     }
@@ -57,7 +57,7 @@ function guest(x, y, type){
       } else {
         ctx.drawImage(guestFronts[type], this.x, this.y, this.sprite_width, this.sprite_height);
       }
-      debug_rect(ctx, 
+      debug_rect(ctx,
           this.x + this.hittbox_x_offset,
           this.y + this.hitbox_y_offset,
           this.hitbox_width,
@@ -68,7 +68,7 @@ function guest(x, y, type){
       // only check collisions if this.crossing and not this.done
       // RETURN the direction of the collision in radians
       if (this.crossing && !this.done){
-        
+
         var hitbox_left_x = this.x + this.hittbox_x_offset;
         var hitbox_top_y = this.y  + this.hitbox_y_offset;
 
@@ -77,7 +77,7 @@ function guest(x, y, type){
           if (collision_dir != "lived")
             return collision_dir;
         }
-      
+
       }
       return "lived";
     }
