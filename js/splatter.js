@@ -74,3 +74,7 @@ function splat_circle(x, y, s, c) {
     c.fill()
     c.closePath()
 }
+
+function splat_square(x, y, s, c){
+    c.fillRect(x, y, s*5, s*5);
+}

@@ -3,6 +3,7 @@ var initial_y = 630;
 var car_height = 80;
 var guestFronts = ["img/pirate-front-walk.png", "img/pirate-front-walk.png"];
 var guestBacks = ["img/pirate-back-walk.png", "img/pirate-back-walk.png"];
+var guestWaves = ["img/pirate-dance-wave.png", "img/pirate-dance-wave.png"];
 var speed = 200;
 
 function guest(x, type){
@@ -29,6 +30,16 @@ function guest(x, type){
         width: 256,
         height: 32,
         imagesrc: guestBacks[type],
+        numberOfFrames: 8,
+        ticksPerFrame: 8,
+        loop: true
+    });
+
+    this.wave_dance_sprite = new sprite({
+        scale: 4,
+        width: 256,
+        height: 32,
+        imagesrc: guestWaves[type],
         numberOfFrames: 8,
         ticksPerFrame: 8,
         loop: true
@@ -83,6 +94,8 @@ function guest(x, type){
             this.back_sprite.update();
           else
             this.front_sprite.update();
+        } else {
+          this.wave_dance_sprite.update();
         }
       }
     }
@@ -91,8 +104,10 @@ function guest(x, type){
       if (!this.done){
         if (this.crossing && this.going)
           this.back_sprite.render(ctx, this.x, this.y);          
+        else if (!this.crossing && this.going)
+          this.front_sprite.render(ctx, this.x, this.y); 
         else
-          this.front_sprite.render(ctx, this.x, this.y);       
+          this.wave_dance_sprite.render(ctx, this.x, this.y);      
       }
       debug_rect(ctx,
           this.x + this.hittbox_x_offset,
