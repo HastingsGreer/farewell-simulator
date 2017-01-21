@@ -26,7 +26,7 @@ function waver (onStartWave, onEndWave, ctx){
 
   }
   var hand = new Image();
-  hand.src = '/img/hand.png';
+  hand.src = 'img/general%20hand.png';
 
   var shoulderX = 500;
   var shoulderY = 500;
