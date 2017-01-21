@@ -6,7 +6,7 @@ function waver (onStartWave, onEndWave, ctx){
   this.newX = 0;
   this.newY = 0;
   this.waving = false;
-
+  this.timer = 0;
   this.update = () => {
       //get mousex, y
       if(this.mouseX != this.newX || this.mouseY != this.newY ){
@@ -14,13 +14,28 @@ function waver (onStartWave, onEndWave, ctx){
           this.mouseX = this.newX;
           this.mouseY = this.newY;
          if(!this.waving){
-             this.waving = true;
-             onStartWave();
+             if(this.timer > 6){
+                 this.waving = true;
+                 onStartWave();
+                 this.timer = 0;
+             } else {
+                 this.timer += 1;
+             }
+
+         } else {
+             this.timer = 0;
          }
      } else {
          if(this.waving){
-             this.waving = false;
-             onEndWave();
+             if(this.timer > 6){
+                 this.waving = false;
+                 onEndWave();
+                 this.timer = 0;
+             } else {
+                 this.timer += 1;
+             }
+         } else {
+             this.timer = 0;
          }
      }
 
