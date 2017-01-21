@@ -1,5 +1,5 @@
 console.log("I exist");
-var cars = spriteList(["img/tank-roll.png", "img/tank-roll.png"]);
+var cars = ["img/tank-roll.png", "img/tank-roll.png"];
 var width = 1800;
 var lanes = [50, 150, 250, 350, 450];
 
@@ -7,6 +7,16 @@ function car(lane, start_position, speed, type){
   this.x = start_position;
   this.y = lanes[lane];
   this.speed = speed;
+
+  this.sprite = new sprite({
+      scale: 4,
+      width: 256,
+      height: 32,
+      imagesrc: cars[type],
+      numberOfFrames: 8,
+      ticksPerFrame: 8,
+      loop: true
+  });
 
   this.sprite_width = 128;
   this.sprite_height = 128;
@@ -27,8 +37,8 @@ function car(lane, start_position, speed, type){
     }
   }
   this.draw = (ctx) => {
-      cars[type].update(ctx);
-      cars[type].render(ctx, this.x, this.y);
+      this.sprite.update(ctx);
+      this.sprite.render(ctx, this.x, this.y);
     //   ctx.drawImage(cars[type], this.x, this.y, this.sprite_width, this.sprite_height);
       debug_rect(ctx,
           this.x + this.hittbox_x_offset,
