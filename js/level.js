@@ -93,7 +93,7 @@ function level(level_number){
               init(level_number + 1);
             });
           },
-          4000
+          2000
         );
     }
 
@@ -110,7 +110,7 @@ function level(level_number){
             height: 32,
             imagesrc: "img/you-lose.png",
             numberOfFrames: 20,
-            ticksPerFrame: 8,
+            ticksPerFrame: 4,
             loop: true
         });
         tile.x = 0;
@@ -123,7 +123,7 @@ function level(level_number){
               init(level_number);
             });
           },
-          3000
+          2000
         );
     }
 
