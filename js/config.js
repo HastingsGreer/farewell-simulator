@@ -102,6 +102,9 @@ var guest_sprite_meta = [
   }
 ];
 
+//Sounds
+var sounds = ['sound/splat.wav', 'sound/splat-leg.wav'];
+
 // helper functions
 function rand_sign() {
   return Math.random() > .5 ? -1 : 1;

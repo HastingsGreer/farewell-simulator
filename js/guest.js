@@ -73,6 +73,10 @@ function guest(x, type){
         starty: this.y
       });
 
+      var source = Math.random() > .3 ? sounds[0] : sounds[1];
+      var audio = new Audio(source);
+      audio.play();
+
       // Trigger death animation
       death_callback(
         this.x + Math.floor(this.sprite_width/2),
