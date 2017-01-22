@@ -23,7 +23,7 @@ var sb_position = {
 var camera_mode = false;
 
 // Sprites - car
-var car_sprites = ["img/tank-roll.png", "img/car1-roll.png", "img/canoe-bear.png"];
+var car_sprites = ["img/tank-roll.png", "img/car1-roll.png", "img/canoe-bear.png", "img/car2-roll.png"];
 // sprites - guests
 var guestFronts = ["img/pirate-front-walk.png", "img/general-front-walk.png",
                    "img/lady-front-walk.png", "img/alien-front-walk.png"];

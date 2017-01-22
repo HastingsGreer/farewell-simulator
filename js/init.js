@@ -22,7 +22,7 @@ function level_init(levelID) {
             break;
         case 0:
             cars = [new car(0, 100, 400, 1),
-                    new car(2, -800, -400, 1)];
+                    new car(2, -800, -400, 3)];
 
             guests = [new guest(200, 0)];
             break;
@@ -30,7 +30,7 @@ function level_init(levelID) {
             cars = [new car(0, 100, 400, 1),
                     new car(1, 100, -400, 2),
                     new car(2, -400, -400, 0),
-                    new car(3, -700, 300, 1)];
+                    new car(3, -700, 300, 3)];
 
             guests = [new guest(100, 0),
                      new guest(200, 2)];
@@ -46,7 +46,7 @@ function level_init(levelID) {
         case 3:
             cars = [new car(0, 100, 400, 0),
                     new car(1, 100, -400, 1),
-                    new car(3, 300, 300, 2),
+                    new car(3, 300, 300, 3),
                     new car(3, -700, 300, 2)];
 
             guests = [new guest(-100, 0),
