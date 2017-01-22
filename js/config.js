@@ -8,10 +8,16 @@ var default_car_speed = 400;
 var lane_width = 1800;
 
 // Guest Config
-var crossing_x = 300;
+var crossing_x = 325;
 var initial_guest_gap = 150; //px
 var random_guests_count = 30;
 var difficulty_increase_scalar = 30; //px
+
+//Scoreboard config
+var sb_position = {
+  "x": 600,
+  "y": 700
+}
 
 // Sprites - car
 var car_sprites = ["img/tank-roll.png", "img/car1-roll.png"];

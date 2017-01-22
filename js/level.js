@@ -11,6 +11,7 @@ function level(level_number){
   var temp = level_init(level_number);
   this.cars = temp.cars;
   this.guests = temp.guests;
+  this.sb = new scoreboard(level_number, 0);
 
   var done = false;
   this.tiles = [];
@@ -37,7 +38,7 @@ function level(level_number){
     // If the guests lived, update their walk positions
     var all_guests_lived = true;
     for (var i = 0, len = this.guests.length; i < len; i++) {
-      this.guests[i].update(delta);
+      this.guests[i].update(delta, this.cross_callback);
       if(this.guests[i].y > -128){ // MAGIC - height of a guest sprite
           all_guests_lived = false;
       }
@@ -98,6 +99,9 @@ function level(level_number){
           3000
         );
     }
+
+    // Gameplay goes on? update scoreboard
+    this.sb.update();
   }
 
   this.onStartWave = () =>{
@@ -116,6 +120,10 @@ function level(level_number){
     // called upon guest death,
     // with x, y, and direction of death
     splat(x, y, direction, this.splatter_items);
+  }
+
+  this.cross_callback = () => {
+    this.sb.score++;
   }
 
   this.draw = (ctx) => {
@@ -137,5 +145,8 @@ function level(level_number){
         tile.render(ctx, tile.x, tile.y);
         tile.update();
     }
+
+    // update the scoreboard
+    this.sb.draw(ctx);
   }
 }
