@@ -16,7 +16,7 @@ var difficulty_increase_scalar = 30; //px
 //Scoreboard config
 var sb_position = {
   "x": 640,
-  "y": 700
+  "y": 680
 }
 
 // camera mode

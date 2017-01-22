@@ -4,6 +4,8 @@ function init_init() {
 
   // default muted
   toggle_audio(true);
+
+  window.splats = 0;
 }
 
 function init(levelID){
