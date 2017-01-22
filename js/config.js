@@ -25,6 +25,7 @@ var camera_mode = false;
 // Sprites - car
 var car_sprites = ["img/tank-roll.png", "img/car1-roll.png",
                     "img/canoe-bear.png", "img/car2-roll.png"];
+
 var car_sprite_meta = [
   {
     "width": 128,
@@ -62,11 +63,14 @@ var car_sprite_meta = [
 
 // sprites - guests
 var guestFronts = ["img/pirate-front-walk.png", "img/general-front-walk.png",
-                   "img/lady-front-walk.png", "img/alien-front-walk.png"];
+                   "img/lady-front-walk.png", "img/alien-front-walk.png",
+                   "img/bball-front-walk.png"];
 var guestBacks = ["img/pirate-back-walk.png", "img/general-back-walk.png",
-                  "img/lady-back-walk.png", "img/alien-back-walk.png"];
+                  "img/lady-back-walk.png", "img/alien-back-walk.png",
+                  "img/bball-back-walk.png"];
 var guestWaves = ["img/pirate-dance-wave.png", "img/general-jump-wave.png",
-                  "img/lady-wave.png", "img/alien-wave.png"];
+                  "img/lady-wave.png", "img/alien-wave.png",
+                  "img/bball-wave.png"];
 var guest_sprite_meta = [
   {
     "width": 128,
@@ -99,6 +103,14 @@ var guest_sprite_meta = [
     "hbheight":32,
     "x_offset": 40,
     "y_offset": 80
+  },
+  {
+    "width": 128,
+    "height": 128,
+    "hbwidth": 48,
+    "hbheight":32,
+    "x_offset": 40,
+    "y_offset": 96
   }
 ];
 
