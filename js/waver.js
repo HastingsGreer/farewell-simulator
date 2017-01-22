@@ -48,7 +48,7 @@ function waver (onStartWave, onEndWave, ctx){
   host.src = 'img/general-back-nohand.png';
 
   var shoulderX = 550;
-  var shoulderY = 700;
+  var shoulderY = 720;
 
   //stolen from http://www.html5canvastutorials.com/advanced/html5-canvas-mouse-coordinates/
   this.getMousePos = (evt) => {
@@ -69,7 +69,7 @@ function waver (onStartWave, onEndWave, ctx){
   this.draw = () => {
      ctx.save();
      ctx.translate(shoulderX,shoulderY);
-     ctx.rotate(this.waving || this.timer > 3? Math.atan2(this.mouseX -shoulderX , -(this.mouseY - shoulderY)) + 1.5 : 3.14);
+     ctx.rotate(this.waving || this.timer > 3? Math.atan2(this.mouseX -shoulderX , -(this.mouseY - shoulderY)) + .6 : 3.14);
      ctx.scale(4, 4);
      ctx.translate(-16, -17);
      ctx.drawImage(hand, 0, 0);
