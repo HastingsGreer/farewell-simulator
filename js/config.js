@@ -22,9 +22,9 @@ var sb_position = {
 // Sprites - car
 var car_sprites = ["img/tank-roll.png", "img/car1-roll.png"];
 // sprites - guests
-var guestFronts = ["img/pirate-front-walk.png", "img/general-front-walk.png"];
-var guestBacks = ["img/pirate-back-walk.png", "img/general-back-walk.png"];
-var guestWaves = ["img/pirate-dance-wave.png", "img/general-jump-wave.png"];
+var guestFronts = ["img/pirate-front-walk.png", "img/general-front-walk.png", "img/lady-front-walk.png"];
+var guestBacks = ["img/pirate-back-walk.png", "img/general-back-walk.png","img/lady-back-walk.png"];
+var guestWaves = ["img/pirate-dance-wave.png", "img/general-jump-wave.png", "img/lady-front-walk.png"];
 
 // helper functions
 function rand_sign() {

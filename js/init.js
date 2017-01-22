@@ -33,7 +33,7 @@ function level_init(levelID) {
                     new car(3, -700, 300, 1)];
 
             guests = [new guest(100, 0),
-                     new guest(200, 1)];
+                     new guest(200, 2)];
             break;
         case 2:
             cars = [new car(0, 100, 400, 1),
@@ -51,7 +51,7 @@ function level_init(levelID) {
 
             guests = [new guest(-100, 0),
                      new guest(00, 1),
-                     new guest(100, 1),
+                     new guest(100, 2),
                      new guest(150, 1)];
             break;
         case 4:
@@ -62,7 +62,7 @@ function level_init(levelID) {
 
             guests = [new guest(90, 1),
                 new guest(110, 1),
-                     new guest(130, 1),
+                     new guest(130, 2),
                      new guest(150, 1),
                      new guest(170, 0)];
             break;
