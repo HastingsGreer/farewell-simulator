@@ -2,7 +2,7 @@
 var initial_difficulty = 1;
 
 // Car config
-var lanes = [50, 150, 250, 350, 450]; // 96 wide
+var lanes = [58, 154, 250, 346, 442]; // 96 wide
 var cars_per_lane_scalar = 2;
 var default_car_speed = 400;
 var lane_width = 1800;
@@ -136,7 +136,6 @@ function button_click(text){
     });
   }
 }
-
 function toggle_hand() {
   if (!camera_mode) {
     camera_mode = true;
