@@ -23,6 +23,22 @@ function level(level_number){
       ticksPerFrame: 8,
       loop: false
   });
+
+  var wall = new Image();
+  var wind = new Image();
+  var door = new Image();
+  wall.src = "img/house-wall.png";
+  wind.src = "img/house-window.png";
+  door.src = "img/house-door.png";
+
+  this.drawHouse = (ctx) => {
+      var array = [wall, wind, wall, door, wind, wall, wall];
+      var x = 312 - 3 * 32 * 5;
+      var y = 618;
+      for(var i = 0; i < 7; i++, x += 5 * 32 ){
+          ctx.drawImage(array[i], x, y, 32 * 5, 32 * 5);
+      }
+  }
   doorTop.x = 312;
   doorTop.y = 618;
   this.tiles = [doorTop];
@@ -145,6 +161,8 @@ function level(level_number){
 
     // Draw splatter
     drawsplat(ctx, this.splatter_items);
+
+    this.drawHouse(ctx);
 
     var actors = (this.guests.concat(this.cars)).sort((a, b) => {return a.y - b.y});
 
