@@ -6,6 +6,8 @@ function init(levelID){
   var canvas = document.getElementById("game");
   window.game = new Game(canvas, levelID);
   window.game_debug = false;
+  window.addEventListener('resize', resize4thWallCanvas, false);
+  resize4thWallCanvas();
 }
 
 
@@ -16,6 +18,8 @@ var Game = function(canvas, levelID){
     here's the game initialization code
   */
   this.canvas = canvas;
+  this.canvas_4th_wall = document.getElementById("death_4th_wall");
+  this.ctx_4th_wall = this.canvas_4th_wall.getContext("2d");
   this.ctx = canvas.getContext('2d');
   this.ctx.mozImageSmoothingEnabled = false;
   this.ctx.webkitImageSmoothingEnabled = false;
@@ -75,6 +79,7 @@ var Game = function(canvas, levelID){
       read the state and decide what changes to make to the canvas.
     */
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.ctx_4th_wall.clearRect(0, 0, this.canvas_4th_wall.width, this.canvas_4th_wall.height);
     this.level.draw(this.ctx);
     this.waver.draw();
   }
