@@ -15,7 +15,7 @@ var difficulty_increase_scalar = 30; //px
 
 //Scoreboard config
 var sb_position = {
-  "x": 640,
+  "x": 620,
   "y": 680
 }
 
