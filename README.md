@@ -6,6 +6,7 @@ Created by:
 * Hastings Greer @QuadmasterXLII
 * Austin Wang @dafondo
 * Brandon Davis @subdavis
+* Forrest Li @floryst
 
 Gameplay:
 -------------
