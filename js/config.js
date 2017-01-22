@@ -2,7 +2,7 @@
 var initial_difficulty = 1;
 
 // Car config
-var lanes = [50, 150, 250, 350, 450];
+var lanes = [50, 150, 250, 350, 450]; // 96 wide
 var cars_per_lane_scalar = 2;
 var default_car_speed = 400;
 var lane_width = 1800;
@@ -15,7 +15,7 @@ var difficulty_increase_scalar = 30; //px
 
 //Scoreboard config
 var sb_position = {
-  "x": 600,
+  "x": 640,
   "y": 700
 }
 

@@ -44,10 +44,10 @@ function guest(x, type){
     this.sprite_width = 128;
     this.sprite_height = 128;
 
-    this.hitbox_width = 64;
+    this.hitbox_width = 48;
     this.hitbox_height = 32;
 
-    this.hittbox_x_offset = 32;
+    this.hittbox_x_offset = 40;
     this.hitbox_y_offset = 96;
 
     this.stop = () => {
