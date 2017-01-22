@@ -23,7 +23,7 @@ var sb_position = {
 var camera_mode = false;
 
 // Sprites - car
-var car_sprites = ["img/tank-roll.png", "img/car1-roll.png", 
+var car_sprites = ["img/tank-roll.png", "img/car1-roll.png",
                     "img/canoe-bear.png", "img/car2-roll.png"];
 var car_sprite_meta = [
   {
@@ -103,7 +103,7 @@ var guest_sprite_meta = [
 ];
 
 //Sounds
-var sounds = ['sound/splat.wav', 'sound/splat-leg.wav'];
+var sounds = ['sound/splat.wav', 'sound/splat-leg.wav'].map((s) => new Audio(s));
 
 // helper functions
 function rand_sign() {
