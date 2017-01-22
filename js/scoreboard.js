@@ -12,8 +12,12 @@ function scoreboard(level, score){
     this.draw = (ctx) => {
       ctx.font= "30px Roboto";
       ctx.fillStyle = "white";
-      ctx.fillText("Score: " + this.score, this.x, this.y);
-      ctx.fillText("Level:  " + this.level, this.x, this.y+30);
+      if (this.level == -1){
+        ctx.fillText("Score: " + this.score, this.x, this.y);
+        ctx.fillText("Level:  inf", this.x, this.y +30);
+      } else {
+        ctx.fillText("Level:  " + this.level, this.x, this.y+30);
+      }
     }
 
     this.getScore = () => {
