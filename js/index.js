@@ -5,7 +5,7 @@ function init(levelID){
   */
   var canvas = document.getElementById("game");
   window.game = new Game(canvas, levelID);
-  window.game_debug = true;
+  window.game_debug = false;
 }
 
 

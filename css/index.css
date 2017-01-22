@@ -9,3 +9,6 @@ canvas {
 body {
     background-color: #404060;
 }
+button {
+  font-size: 30px;
+}

@@ -30,3 +30,20 @@ var guestWaves = ["img/pirate-dance-wave.png", "img/general-jump-wave.png"];
 function rand_sign() {
   return Math.random() > .5 ? -1 : 1;
 }
+
+/*
+  BUTTON FUNCTIONS
+*/
+function button_click(text){
+  if (text=="levels"){
+    window.game.stop(() => {
+      clear_splat();
+      init(0);
+    });
+  } else if (text=="random"){
+    window.game.stop(() => {
+      clear_splat();
+      init(-1);
+    });
+  }
+}
