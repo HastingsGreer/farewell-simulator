@@ -74,8 +74,7 @@ function guest(x, type){
       });
 
       var source = Math.random() > .3 ? sounds[0] : sounds[1];
-      var audio = new Audio(source);
-      audio.play();
+      source.play();
 
       // Trigger death animation
       death_callback(
@@ -98,7 +97,7 @@ function guest(x, type){
             }
         }
         this.done = this.y < (0 - this.sprite_height);
-        
+
         if (this.done)
           cross_callback();
 
