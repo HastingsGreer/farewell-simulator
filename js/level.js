@@ -14,7 +14,18 @@ function level(level_number){
   this.sb = new scoreboard(level_number, 0);
 
   var done = false;
-  this.tiles = [];
+  var doorTop =  new sprite({
+      scale: 4.7,
+      width: 32,
+      height: 32,
+      imagesrc: "img/door-top.png",
+      numberOfFrames: 1,
+      ticksPerFrame: 8,
+      loop: false
+  });
+  doorTop.x = 312;
+  doorTop.y = 618;
+  this.tiles = [doorTop];
   this.splatter_items = [];
   this.bg = new Image();
   this.bg.src = 'img/bg.png';
