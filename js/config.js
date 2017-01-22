@@ -117,6 +117,8 @@ var guest_sprite_meta = [
 //Sounds
 var sounds = ['sound/splat.mp3', 'sound/splat-leg.mp3', 'sound/bang.mp3', 'sound/bam.mp3'].map((s) => new Audio(s));
 
+var audio_muted = false;
+
 // helper functions
 function rand_sign() {
   return Math.random() > .5 ? -1 : 1;
@@ -155,5 +157,24 @@ function toggle_hand() {
   if (!camera_mode) {
     camera_mode = true;
     window.hand = new HandWave(document.getElementById("camera"));
+  }
+}
+function toggle_audio(override) {
+  console.log(audio_muted);
+  audio_muted = !audio_muted;
+  if (override !== undefined) {
+    audio_muted = override;
+  }
+  document.getElementById("game-audio").muted = audio_muted;
+  for (var i = 0; i < sounds.length; i++)
+    sounds[i].muted = audio_muted;
+
+  var btn = document.getElementById("toggle-audio");
+  while (btn.hasChildNodes()) btn.removeChild(btn.firstChild);
+  if (audio_muted) {
+    btn.appendChild(document.createTextNode("TURN ON AUDIO"));
+  }
+  else {
+    btn.appendChild(document.createTextNode("TURN OFF AUDIO"));
   }
 }

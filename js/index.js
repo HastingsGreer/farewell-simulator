@@ -1,3 +1,10 @@
+function init_init() {
+  window.addEventListener('resize', resize4thWallCanvas, false);
+  resize4thWallCanvas();
+
+  toggle_audio(false);
+}
+
 function init(levelID){
   /*
     Called by index.html on page load.
@@ -6,8 +13,6 @@ function init(levelID){
   var canvas = document.getElementById("game");
   window.game = new Game(canvas, levelID);
   window.game_debug = true;
-  window.addEventListener('resize', resize4thWallCanvas, false);
-  resize4thWallCanvas();
 }
 
 

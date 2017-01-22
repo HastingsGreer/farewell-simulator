@@ -36,12 +36,15 @@
     <button onclick="button_click('levels');">CAMPAIGN</button>
     <br><br><br>
     <button id="camera-button" onclick="toggle_hand();">CAMERA MODE</button>
+    <br><br><br>
+    <button id="toggle-audio" onclick="toggle_audio();"></button>
   </center>
-  <script type="text/javascript">
-    init(0);
-  </script>
-  <audio autoplay loop>
+  <audio id="game-audio" autoplay loop>
       <source src="sound/game-score.mp3">
   </audio>
+  <script type="text/javascript">
+    init_init();
+    init(0);
+  </script>
   </body>
 </html>
