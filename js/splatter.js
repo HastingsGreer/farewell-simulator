@@ -39,8 +39,8 @@ function splat(x, y, direction, arr) {
 
 function drawsplat(ctx, arr) {
 
-    sctx.fillStyle = "#ff0000";
-    ctx.fillStyle = "#ff0000";
+    sctx.fillStyle = "rgb(" + Math.floor(255 * (Math.random() * .3 + .7) ) + ", 0, 0)";
+    ctx.fillStyle = "rgb(" + Math.floor(255 * (Math.random() * .3 + .7) ) + ", 0, 0)";
 
     var i = arr.length
     while (i--) {
@@ -63,7 +63,7 @@ function drawsplat(ctx, arr) {
 
     }
 
-    ctx.drawImage(shadow, 0, 0)    
+    ctx.drawImage(shadow, 0, 0)
     //sctx.drawImage(shadow, 0, 0.5)
 
 }
