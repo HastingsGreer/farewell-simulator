@@ -13,7 +13,7 @@ function waver (onStartWave, onEndWave, ctx){
           this.mouseX = this.newX;
           this.mouseY = this.newY;
          if(!this.waving){
-             if(this.timer > 6){
+             if(this.timer > 3){
                  this.waving = true;
                  onStartWave();
                  this.timer = 0;
