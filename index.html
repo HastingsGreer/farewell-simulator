@@ -24,13 +24,15 @@
     <script type="text/javascript" src="js/index.js"></script>
   </head>
   <body id="bod">
+    <div id="canvases">
 	<canvas id="game" width="768" height="768"></canvas>
 	<canvas id="camera"></canvas>
 	<canvas id="death_4th_wall"></canvas>
-  <center>
+      </div>
+  <center id="buttons">
     <br><br><br>
     <button onclick="button_click('random');">SURVIVAL</button>
-    &nbsp&nbsp
+    <br><br><br>
     <button onclick="button_click('levels');">CAMPAIGN</button>
     <br><br><br>
     <button id="camera-button" onclick="toggle_hand();">CAMERA MODE</button>

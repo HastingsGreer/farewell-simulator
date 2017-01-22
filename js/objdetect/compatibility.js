@@ -32,11 +32,17 @@ var compatibility = (function() {
 				window.navigator.getUserMedia ||
 				window.navigator.mozGetUserMedia ||
 				window.navigator.webkitGetUserMedia ||
+				window.navigator.mediaDevices.getUserMedia ||
 				function(options, success, error) {
 					error();
 				};
-			
-			return getUserMedia.call(window.navigator, options, success, error);
+
+			if (/Chrome/.test(window.navigator.userAgent) && window.navigator.mediaDevices && window.navigator.mediaDevices.getUserMedia) {
+				return window.navigator.mediaDevices.getUserMedia(options).then(success).catch(error);
+			}
+			else {
+				return getUserMedia.call(window.navigator, options, success, error);
+			}
 		};
 
 	return {
