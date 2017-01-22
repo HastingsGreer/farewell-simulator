@@ -45,7 +45,7 @@ function level(level_number){
 
     // WIN - proceed to next level
     if(all_guests_lived & ! done){
-        this.tiles.push( new sprite({
+        var tile = new sprite({
             scale: 4,
             width: 192 * 15,
             height: 32,
@@ -53,15 +53,18 @@ function level(level_number){
             numberOfFrames: 15,
             ticksPerFrame: 8,
             loop: true
-        }));
+        });
+        tile.x = 0;
+        tile.y = 0;
+        this.tiles.push(tile);
         done = true;
         setTimeout(() => {
-            console.log("WIN"); 
+            console.log("WIN");
             window.game.stop(() => {
               clear_splat();
               init(level_number + 1);
             });
-          }, 
+          },
           4000
         );
     }
@@ -72,13 +75,26 @@ function level(level_number){
 
     // LOSS - restart the level
     if(any_colission && ! done){
+
+        var tile = new sprite({
+            scale: 4,
+            width: 192 * 20,
+            height: 32,
+            imagesrc: "img/you-lose.png",
+            numberOfFrames: 20,
+            ticksPerFrame: 8,
+            loop: true
+        });
+        tile.x = 0;
+        tile.y = 0;
+        this.tiles.push(tile);
         done = true;
         setTimeout(() => {
-            console.log("LOSS"); 
+            console.log("LOSS");
             window.game.stop(() => {
               init(level_number);
             });
-          }, 
+          },
           3000
         );
     }
@@ -117,8 +133,9 @@ function level(level_number){
         actors[i].draw(ctx);
     }
     for (var i = 0, len = this.tiles.length; i < len; i++) {
-        this.tiles[i].render(ctx, 0, 0);
-        this.tiles[i].update();
+        var tile = this.tiles[i];
+        tile.render(ctx, tile.x, tile.y);
+        tile.update();
     }
   }
 }

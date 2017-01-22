@@ -36,7 +36,7 @@ function sprite (options) {
                 0,
                 this.width / numberOfFrames,
                 this.height,
-                -x,
+                -x - this.width / numberOfFrames * this.scale,
                 y,
                 this.scale * this.width / numberOfFrames,
                 this.scale * this.height);
