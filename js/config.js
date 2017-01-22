@@ -103,7 +103,7 @@ var guest_sprite_meta = [
 ];
 
 //Sounds
-var sounds = ['sound/splat.wav', 'sound/splat-leg.wav'].map((s) => new Audio(s));
+var sounds = ['sound/splat.wav', 'sound/splat-leg.wav', 'sound/JOL_0753_GlassImpact_07_Senn8020.wav', 'sound/JOL_0707_GlassImpact_02_COMP.wav'].map((s) => new Audio(s));
 
 // helper functions
 function rand_sign() {

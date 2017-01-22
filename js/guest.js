@@ -73,7 +73,8 @@ function guest(x, type){
         starty: this.y
       });
 
-      var source = Math.random() > .3 ? sounds[0] : sounds[1];
+      var source = Math.random() > .7 ? (Math.random() > .3? sounds[0] :
+          sounds[1]) : (Math.random() > .5? sounds[2] : sounds[3]);
       source.play();
 
       // Trigger death animation
