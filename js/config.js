@@ -25,7 +25,7 @@ var camera_mode = false;
 // Sprites - car
 var car_sprites = ["img/tank-roll.png", "img/car1-roll.png",
                     "img/canoe-bear.png", "img/car2-roll.png",
-                    "img/superhero.png"];
+                    "img/superhero.png", "img/truck.png"];
 
 var car_sprite_meta = [
   {
@@ -67,6 +67,14 @@ var car_sprite_meta = [
     "hbheight":45,
     "x_offset": 16,
     "y_offset": 44
+  },
+  {
+    "width": 128,
+    "height": 128,
+    "hbwidth": 96,
+    "hbheight":56,
+    "x_offset": 16,
+    "y_offset": 64
   }
 ];
 
