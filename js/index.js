@@ -6,6 +6,10 @@ function init(levelID){
   var canvas = document.getElementById("game");
   window.game = new Game(canvas, levelID);
   window.game_debug = false;
+
+  window.onload = () => {
+    window.hand = new HandWave(document.getElementById("camera"));
+  };
 }
 
 
