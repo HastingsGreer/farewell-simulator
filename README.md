@@ -4,7 +4,7 @@ This is a game created for Global Game Jam 2017 at the UNC Chapel Hill location.
 
 Created by:
 * Hastings Greer @QuadmasterXLII
-* Austin Wong @dafondo
+* Austin Wang @dafondo
 * Brandon Davis @subdavis
 
 Gameplay:
