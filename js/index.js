@@ -2,7 +2,8 @@ function init_init() {
   window.addEventListener('resize', resize4thWallCanvas, false);
   resize4thWallCanvas();
 
-  toggle_audio(false);
+  // default muted
+  toggle_audio(true);
 }
 
 function init(levelID){
