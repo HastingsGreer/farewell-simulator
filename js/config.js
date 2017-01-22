@@ -19,6 +19,9 @@ var sb_position = {
   "y": 700
 }
 
+// camera mode
+var camera_mode = false;
+
 // Sprites - car
 var car_sprites = ["img/tank-roll.png", "img/car1-roll.png", "img/canoe-bear.png"];
 // sprites - guests
@@ -48,5 +51,12 @@ function button_click(text){
       clear_splat();
       init(-1);
     });
+  }
+}
+
+function toggle_hand() {
+  if (!camera_mode) {
+    camera_mode = true;
+    window.hand = new HandWave(document.getElementById("camera"));
   }
 }

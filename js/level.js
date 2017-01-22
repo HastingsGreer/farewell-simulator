@@ -15,7 +15,7 @@ function level(level_number){
 
   var done = false;
   var doorTop =  new sprite({
-      scale: 4.7,
+      scale: 5,
       width: 32,
       height: 32,
       imagesrc: "img/door-top.png",
