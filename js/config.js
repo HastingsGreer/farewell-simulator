@@ -23,7 +23,43 @@ var sb_position = {
 var camera_mode = false;
 
 // Sprites - car
-var car_sprites = ["img/tank-roll.png", "img/car1-roll.png", "img/canoe-bear.png", "img/car2-roll.png"];
+var car_sprites = ["img/tank-roll.png", "img/car1-roll.png", 
+                    "img/canoe-bear.png", "img/car2-roll.png"];
+var car_sprite_meta = [
+  {
+    "width": 128,
+    "height": 128,
+    "hbwidth": 96,
+    "hbheight":56,
+    "x_offset": 16,
+    "y_offset": 64
+  },
+  {
+    "width": 128,
+    "height": 128,
+    "hbwidth": 96,
+    "hbheight":56,
+    "x_offset": 16,
+    "y_offset": 64
+  },
+  {
+    "width": 128,
+    "height": 128,
+    "hbwidth": 96,
+    "hbheight":56,
+    "x_offset": 16,
+    "y_offset": 64
+  },
+  {
+    "width": 128,
+    "height": 128,
+    "hbwidth": 96,
+    "hbheight":56,
+    "x_offset": 16,
+    "y_offset": 64
+  }
+];
+
 // sprites - guests
 var guestFronts = ["img/pirate-front-walk.png", "img/general-front-walk.png",
                    "img/lady-front-walk.png", "img/alien-front-walk.png"];
@@ -31,10 +67,57 @@ var guestBacks = ["img/pirate-back-walk.png", "img/general-back-walk.png",
                   "img/lady-back-walk.png", "img/alien-back-walk.png"];
 var guestWaves = ["img/pirate-dance-wave.png", "img/general-jump-wave.png",
                   "img/lady-wave.png", "img/alien-wave.png"];
+var guest_sprite_meta = [
+  {
+    "width": 128,
+    "height": 128,
+    "hbwidth": 48,
+    "hbheight":32,
+    "x_offset": 40,
+    "y_offset": 96
+  },
+  {
+    "width": 128,
+    "height": 128,
+    "hbwidth": 48,
+    "hbheight":32,
+    "x_offset": 40,
+    "y_offset": 96
+  },
+  {
+    "width": 128,
+    "height": 128,
+    "hbwidth": 48,
+    "hbheight":32,
+    "x_offset": 40,
+    "y_offset": 96
+  },
+  {
+    "width": 128,
+    "height": 128,
+    "hbwidth": 48,
+    "hbheight":32,
+    "x_offset": 40,
+    "y_offset": 80
+  }
+];
 
 // helper functions
 function rand_sign() {
   return Math.random() > .5 ? -1 : 1;
+}
+
+function debug_rect(ctx, hitbox){
+  if (window.game_debug){
+      ctx.beginPath();
+      ctx.strokeStyle="red";
+      ctx.rect(
+        hitbox.left_x,
+        hitbox.top_y,
+        hitbox.hbwidth,
+        hitbox.hbheight);
+      ctx.stroke();
+  }
 }
 
 /*

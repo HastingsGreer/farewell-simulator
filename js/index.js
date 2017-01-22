@@ -87,16 +87,3 @@ var Game = function(canvas, levelID){
   // When init is done, begin the game.
   window.requestAnimationFrame(this.mainLoop);
 }
-
-function debug_rect(ctx, x, y, width, height){
-  if (window.game_debug){
-      ctx.beginPath();
-      ctx.strokeStyle="red";
-      ctx.rect(
-        x,
-        y,
-        width,
-        height);
-      ctx.stroke();
-  }
-}

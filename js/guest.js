@@ -12,6 +12,7 @@ function guest(x, type){
 
 
     this.front_sprite = new sprite({
+        meta: guest_sprite_meta[type],
         scale: 4,
         width: 256,
         height: 32,
@@ -22,6 +23,7 @@ function guest(x, type){
     });
 
     this.back_sprite = new sprite({
+        meta: guest_sprite_meta[type],
         scale: 4,
         width: 256,
         height: 32,
@@ -32,6 +34,7 @@ function guest(x, type){
     });
 
     this.wave_dance_sprite = new sprite({
+        meta: guest_sprite_meta[type],
         scale: 4,
         width: 256,
         height: 32,
@@ -119,22 +122,15 @@ function guest(x, type){
         this.death_animation.render(ctx);
       }
       debug_rect(ctx,
-          this.x + this.hittbox_x_offset,
-          this.y + this.hitbox_y_offset,
-          this.hitbox_width,
-          this.hitbox_height);
+          this.back_sprite.get_hitbox(this.x, this.y));
     }
 
     this.check_collision = (cars) => {
       // only check collisions if this.crossing and not this.done
       // RETURN the direction of the collision in radians
       if (this.crossing && !this.done){
-
-        var hitbox_left_x = this.x + this.hittbox_x_offset;
-        var hitbox_top_y = this.y  + this.hitbox_y_offset;
-
         for (var i=0, len = cars.length; i <  len; i++){
-          var collision_dir = cars[i].check_collision(hitbox_left_x, hitbox_top_y, this.hitbox_width, this.hitbox_height);
+          var collision_dir = cars[i].check_collision(this.back_sprite.get_hitbox(this.x, this.y));
           if (collision_dir != "lived")
             return collision_dir;
         }

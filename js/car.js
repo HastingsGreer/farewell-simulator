@@ -5,6 +5,7 @@ function car(lane, start_position, speed, type){
   this.speed = speed;
 
   this.sprite = new sprite({
+      meta: car_sprite_meta[type],
       scale: 4,
       width: 256,
       height: 32,
@@ -14,15 +15,6 @@ function car(lane, start_position, speed, type){
       loop: true,
       flipped: this.speed < 0
   });
-
-  this.sprite_width = 128;
-  this.sprite_height = 128;
-
-  this.hitbox_width = 96;
-  this.hitbox_height = 56;
-
-  this.hittbox_x_offset = 16;
-  this.hitbox_y_offset = 64;
 
   this.update = (delta) => {
     this.x = this.x + speed * delta / 1000;
@@ -36,22 +28,22 @@ function car(lane, start_position, speed, type){
   this.draw = (ctx) => {
       this.sprite.update(ctx);
       this.sprite.render(ctx, this.x, this.y);
-    //   ctx.drawImage(cars[type], this.x, this.y, this.sprite_width, this.sprite_height);
+      //   ctx.drawImage(cars[type], this.x, this.y, this.sprite_width, this.sprite_height);
       debug_rect(ctx,
-          this.x + this.hittbox_x_offset,
-          this.y + this.hitbox_y_offset,
-          this.hitbox_width,
-          this.hitbox_height);
+          this.sprite.get_hitbox(this.x, this.y));
   }
-  this.check_collision = (gx, gy, gwidth, gheight) => {
-    var hitbox_left_x = this.x + this.hittbox_x_offset;
-    var hitbox_top_y = this.y + this.hitbox_y_offset;
+  this.check_collision = (guest_hitbox) => {
+    var my_hitbox = this.sprite.get_hitbox(this.x, this.y);
 
-    if (hitbox_top_y + this.hitbox_height > gy && hitbox_top_y < gy + gheight){
-      if (hitbox_left_x + this.hitbox_width > gx && hitbox_left_x < gx + gheight){
+    if (my_hitbox.top_y + my_hitbox.hbheight > guest_hitbox.top_y && 
+        my_hitbox.top_y < guest_hitbox.top_y + guest_hitbox.hbheight){
+      
+      if (my_hitbox.left_x + my_hitbox.hbwidth > guest_hitbox.left_x && 
+          my_hitbox.left_x < guest_hitbox.left_x + guest_hitbox.hbwidth){
+        
         // HIT - return angle between hitboxes
-        var trans_x = (gx + (gwidth/2)) - (hitbox_left_x + (this.hitbox_width/2));
-        var trans_y = (gy + (gheight/2)) - (hitbox_top_y + (this.hitbox_height/2));
+        var trans_x = (guest_hitbox.left_x + (guest_hitbox.hbwidth/2)) - (my_hitbox.left_x + (my_hitbox.hbwidth/2));
+        var trans_y = (guest_hitbox.top_y + (guest_hitbox.hbheight/2)) - (my_hitbox.top_y + (my_hitbox.hbheight/2));
         return Math.atan2(trans_y, trans_x);
       }
     }

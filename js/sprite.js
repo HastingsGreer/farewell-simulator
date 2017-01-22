@@ -6,6 +6,7 @@ function sprite (options) {
     var frameIndex = 0;
     var tickCount = 0;
 
+    this.meta = options.meta;
     this.context = null;
     this.scale = options.scale;
     this.width = options.width;
@@ -58,4 +59,15 @@ function sprite (options) {
             }
         }
     };
+
+    this.get_hitbox = (x, y) => {
+        var hitbox_left_x = x + this.meta.x_offset;
+        var hitbox_top_y = y + this.meta.y_offset;
+        return {
+            "left_x": hitbox_left_x,
+            "top_y": hitbox_top_y,
+            "hbwidth": this.meta.hbwidth,
+            "hbheight": this.meta.hbheight
+        };
+    }
 }
