@@ -63,6 +63,13 @@ function guest(x, type){
       this.done = true;
       this.going = 0;
 
+      this.death_animation = new death_spin({
+        sprite: this.front_sprite,
+        dir: direction,
+        startx: this.x,
+        starty: this.y
+      });
+
       // Trigger death animation
       death_callback(
         this.x + Math.floor(this.sprite_width/2),
@@ -107,6 +114,9 @@ function guest(x, type){
           this.front_sprite.render(ctx, this.x, this.y);
         else
           this.wave_dance_sprite.render(ctx, this.x, this.y);
+      }
+      else if (this.death_animation && !this.death_animation.done) {
+        this.death_animation.render(ctx);
       }
       debug_rect(ctx,
           this.x + this.hittbox_x_offset,

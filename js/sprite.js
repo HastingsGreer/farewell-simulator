@@ -1,7 +1,7 @@
 function sprite (options) {
 
     var ticksPerFrame = options.ticksPerFrame || 0;
-    var numberOfFrames = options.numberOfFrames || 1;
+    this.numberOfFrames = options.numberOfFrames || 1;
 
     var frameIndex = 0;
     var tickCount = 0;
@@ -20,25 +20,25 @@ function sprite (options) {
         if(!this.flipped){
             this.context.drawImage(
                 this.image,
-                frameIndex * this.width / numberOfFrames,
+                frameIndex * this.width / this.numberOfFrames,
                 0,
-                this.width / numberOfFrames,
+                this.width / this.numberOfFrames,
                 this.height,
                 x,
                 y,
-                this.scale * this.width / numberOfFrames,
+                this.scale * this.width / this.numberOfFrames,
                 this.scale * this.height);
         } else {
             this.context.scale(-1, 1);
             this.context.drawImage(
                 this.image,
-                frameIndex * this.width / numberOfFrames,
+                frameIndex * this.width / this.numberOfFrames,
                 0,
-                this.width / numberOfFrames,
+                this.width / this.numberOfFrames,
                 this.height,
-                -x - this.width / numberOfFrames * this.scale,
+                -x - this.width / this.numberOfFrames * this.scale,
                 y,
-                this.scale * this.width / numberOfFrames,
+                this.scale * this.width / this.numberOfFrames,
                 this.scale * this.height);
             this.context.scale(-1, 1);
         }
@@ -51,7 +51,7 @@ function sprite (options) {
 
         if(tickCount > ticksPerFrame) {
             tickCount = 0;
-            if(frameIndex < numberOfFrames - 1) {
+            if(frameIndex < this.numberOfFrames - 1) {
                 frameIndex++;
             } else if(this.loop) {
                 frameIndex = 0;
