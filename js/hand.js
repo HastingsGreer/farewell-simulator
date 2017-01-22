@@ -80,10 +80,12 @@ function HandWave(canvas) {
       }
       compatibility.requestAnimationFrame(self.recordCamera);
     }, (err) => {
+      alert("No WebRTC! " + err);
       console.error("No WebRTC!", err);
     });
   }
   catch (err) {
+    alert("Failed to use compatibility layer: " + err);
     console.error("Failed to use compatibility layer.", err);
   }
 }
