@@ -3,10 +3,11 @@
   <head>
     <title> Farewell Simulator </title>
     <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/scoreboard.js"></script>
     <script type="text/javascript" src="js/splatter.js"></script>
     <script type="text/javascript" src="js/sprite.js"></script>
-    <script type="text/javascript" src="js/spritelist.js"></script>
     <script type="text/javascript" src="js/guest.js"></script>
     <script type="text/javascript" src="js/car.js"></script>
     <script type="text/javascript" src="js/waver.js"></script>
@@ -16,6 +17,11 @@
   </head>
   <body id="bod">
 	<canvas id="game" width="768" height="768"></canvas>
+  <center>
+    <br><br><br>
+    <button onclick="button_click('');">RANDOM</button>
+    <button onclick="button_click('');">LEVELS</button>
+  </center>
   <script type="text/javascript">
     init(0);
   </script>

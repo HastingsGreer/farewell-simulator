@@ -70,7 +70,7 @@ function guest(x, type){
         direction
       );
     }
-    this.update = (delta) => {
+    this.update = (delta, cross_callback) => {
       if (!this.done){
         if(this.crossing){
             // let's name the magic numbers
@@ -84,6 +84,9 @@ function guest(x, type){
             }
         }
         this.done = this.y < (0 - this.sprite_height);
+        
+        if (this.done)
+          cross_callback();
 
         if (this.going){
           if (this.crossing)
