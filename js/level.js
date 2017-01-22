@@ -58,6 +58,7 @@ function level(level_number){
       if (collision_dir != "lived" ){
         any_colission = true;
         this.guests[i].die(collision_dir, this.death_callback);
+        ++window.splats;
       }
 
     }

@@ -18,6 +18,7 @@ function scoreboard(level, score){
       } else {
         ctx.fillText("Level:  " + this.level, this.x, this.y+30);
       }
+      ctx.fillText("Splats: " + window.splats, this.x, this.y+60);
     }
 
     this.getScore = () => {
