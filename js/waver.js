@@ -1,6 +1,7 @@
 
 function waver (onStartWave, onEndWave, ctx){
   console.log("waver getting initialized");
+  this.touching = false;
   this.mouseX = 0;
   this.mouseY = 0;
   this.newX = 0;
@@ -9,36 +10,36 @@ function waver (onStartWave, onEndWave, ctx){
   this.goWave = false;
   this.timer = 0;
   this.update = () => {
-      //get mousex, y
-      if (this.mouseX != this.newX || this.mouseY != this.newY || this.goWave) {
+    //get mousex, y
+    if (this.mouseX != this.newX || this.mouseY != this.newY || this.goWave || this.touching) {
           this.mouseX = this.newX;
           this.mouseY = this.newY;
           this.goWave = false;
-         if(!this.waving){
-             if(this.timer > 3){
-                 this.waving = true;
-                 onStartWave();
-                 this.timer = 0;
-             } else {
-                 this.timer += 1;
-             }
+        if(!this.waving){
+            if(this.timer > 3){
+                this.waving = true;
+                onStartWave();
+                this.timer = 0;
+            } else {
+                this.timer += 1;
+            }
 
-         } else {
-             this.timer = 0;
-         }
-     } else {
-         if(this.waving){
-             if(this.timer > 6){
-                 this.waving = false;
-                 onEndWave();
-                 this.timer = 0;
-             } else {
-                 this.timer += 1;
-             }
-         } else {
-             this.timer = 0;
-         }
-     }
+        } else {
+            this.timer = 0;
+        }
+    } else {
+        if(this.waving){
+            if(this.timer > 6){
+                this.waving = false;
+                onEndWave();
+                this.timer = 0;
+            } else {
+                this.timer += 1;
+            }
+        } else {
+            this.timer = 0;
+        }
+    }
 
   }
   var hand = new Image();
@@ -57,6 +58,15 @@ function waver (onStartWave, onEndWave, ctx){
       this.newY = evt.clientY - this.canvY;
 
   }
+  
+  this.touchDown = (evt) => {
+    if(evt.touches) this.touching = true;
+  }
+
+  this.touchUp = (evt) => {
+      this.touching = false;
+  }
+
   var canvas = document.getElementById('game');
 
   var rect = canvas.getBoundingClientRect();
@@ -64,7 +74,9 @@ function waver (onStartWave, onEndWave, ctx){
   this.canvY = rect.top;
 
   document.getElementById('bod').addEventListener('mousemove', this.getMousePos , false);
-
+  document.getElementById('bod').addEventListener('touchmove', this.touchDown);
+  document.getElementById('bod').addEventListener('touchend', this.touchUp);
+  document.getElementById('bod').addEventListener('touchcancel', this.touchUp);
 
   this.draw = () => {
      ctx.save();

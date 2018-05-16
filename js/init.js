@@ -27,6 +27,13 @@ function level_init(levelID) {
             guests = [new guest(250, 0)];
             break;
         case 1:
+            cars = [new car(0, 100, 400, 3),
+                    new car(2, -800, -400, 1),
+                    new car(4, 100, -400, 5)];
+            guests = [new guest(250, 2),
+                      new guest(100, 4)];
+            break;
+        case 2:
             cars = [new car(0, 100, 400, 1),
                     new car(1, 100, -400, 2),
                     new car(2, -400, -400, 0),
@@ -35,7 +42,7 @@ function level_init(levelID) {
             guests = [new guest(100, 0),
                      new guest(200, 2)];
             break;
-        case 2:
+        case 3:
             cars = [new car(0, 100, 400, 1),
                     new car(1, 100, 400, 1),
                     new car(3, 100, 400, 1),
@@ -43,7 +50,7 @@ function level_init(levelID) {
 
             guests = [new guest(200, 1)];
             break;
-        case 3:
+        case 4:
             cars = [new car(0, 100, 400, 0),
                     new car(1, 100, -400, 1),
                     new car(3, 300, 300, 3),
@@ -55,7 +62,7 @@ function level_init(levelID) {
                      new guest(150, 1)];
             break;
 
-        case 4:
+        case 5:
             cars = [new car(0, 325, 400, 0),
                     new car(1, 325, -400, 1),
                     new car(2, 325, 400, 3),
@@ -68,7 +75,7 @@ function level_init(levelID) {
                      new guest(40, 2),
                      new guest(150, 1)];
             break;
-        case 5:
+        case 6:
             cars = [
                     new car(1, 0, -400, 2),
                     new car(2, -110, -400, 2),
@@ -84,7 +91,7 @@ function level_init(levelID) {
 
             guests = [new guest(220, 3)];
             break;
-        case 6:
+        case 7:
             cars = [new car(3, 100, 400, 0),
                     new car(3, 300, 400, 0),
                     new car(3, 500, 400, 0),
@@ -96,8 +103,28 @@ function level_init(levelID) {
                      new guest(150, 1),
                      new guest(170, 0)];
             break;
+        case 8:
+            cars = [new car(0, 100, 400, 4),
+                    new car(2, 100, 400, 4),
+                    new car(3, 100, 400, 4),
+                    new car(4, 100, 400, 4),
+                    new car(0, -800, 400, 0),
+                    new car(2, -800, 400, 0),
+                    new car(3, -800, 400, 0),
+                    ];
+
+            guests = [new guest(200, 1),
+                      new guest(150, 1)];
+            break;
         default:
-            console.log("PANIC, why did you pass", levelID, "as level ID?");
+            alert("YOU HAVE WON EVERY LEVEL, how Did you do that? anyways you are very skill.")
+            cars = [];
+            guests = [];
+            var i = 0;
+            for (var x = 200; x > -3000; x-= 100){
+                guests.push(new guest(x, i % 5));
+                i += 1;
+            }
 
     }
 
